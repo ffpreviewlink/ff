@@ -94,6 +94,11 @@ section{padding-block:clamp(64px,10vw,152px) 0}
 @media(max-width:1100px){.perno{grid-template-columns:auto 1fr}.perno .store{grid-column:1/-1;justify-self:start}}
 @media(max-width:700px){.perno .store{justify-self:stretch;justify-content:center}}
 .perno .mono{white-space:nowrap}
+.perno .dm-logo{justify-self:center}
+.perno .pdesc{margin-top:10px;max-width:52ch;color:var(--grey);font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.05rem;line-height:1.35}
+.perno .pdesc em{color:var(--accent);font-weight:600}
+.store.visit .arr{display:inline-block;color:var(--accent);font-size:1.2em;transition:transform .35s var(--ease)}
+.store.visit:hover .arr,.store.visit:focus-visible .arr{transform:translate(2px,-2px)}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;gap:16px;min-height:60px;padding:0 24px 0 20px;background:var(--ink);color:var(--paper);border-radius:999px;position:relative;overflow:hidden;isolation:isolate;font-weight:700;letter-spacing:-.01em}
