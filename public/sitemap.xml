@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://federicofuffa.it/</loc><priority>1.0</priority></url>
-  
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://federicofuffa.it/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://federicofuffa.it/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://federicofuffa.it/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://federicofuffa.it/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://federicofuffa.it/it/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://federicofuffa.it/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://federicofuffa.it/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://federicofuffa.it/"/>
+    <priority>0.9</priority>
+  </url>
 </urlset>

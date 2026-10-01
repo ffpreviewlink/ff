@@ -33,3 +33,27 @@ if (ver) {
       .catch(() => {});
   }
 }
+
+// theme toggle: the initial theme is set by the inline script in <head>
+const root = document.documentElement;
+const toggle = document.querySelector(".theme-toggle");
+const themeMeta = document.querySelector('meta[name="theme-color"]');
+const dark = matchMedia("(prefers-color-scheme: dark)");
+const stored = () => { try { const t = localStorage.getItem("theme"); return t === "light" || t === "dark" ? t : null; } catch { return null; } };
+const setTheme = (t) => {
+  root.dataset.theme = t;
+  if (themeMeta) themeMeta.content = t === "dark" ? "#111110" : "#f3f1ec";
+  if (toggle) {
+    const next = t === "dark" ? toggle.dataset.toLight : toggle.dataset.toDark;
+    toggle.setAttribute("aria-label", next);
+    toggle.title = next;
+  }
+};
+setTheme(root.dataset.theme === "dark" ? "dark" : "light");
+toggle?.addEventListener("click", () => {
+  const t = root.dataset.theme === "dark" ? "light" : "dark";
+  setTheme(t);
+  try { localStorage.setItem("theme", t); } catch {}
+});
+// follow the OS setting until the visitor picks a theme
+dark.addEventListener("change", (e) => { if (!stored()) setTheme(e.matches ? "dark" : "light"); });

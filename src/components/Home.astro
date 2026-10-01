@@ -1,0 +1,157 @@
+---
+import Base from "../layouts/Base.astro";
+import { ui, home, type Lang } from "../i18n/ui";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = ui[lang];
+
+let version = "";
+try {
+  const r = await fetch("https://api.github.com/repos/fuffafederico/perno-releases/releases/latest", {
+    signal: AbortSignal.timeout(5000),
+    headers: { "User-Agent": "federicofuffa.it-build" },
+  });
+  if (r.ok) version = String((await r.json()).tag_name ?? "").replace(/^v/i, "");
+} catch {}
+
+const site = "https://federicofuffa.it";
+const jsonld = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": site + "/#federico",
+    name: "Federico Fuffa",
+    url: site + "/",
+    jobTitle: t.jobTitle,
+    description: t.personDescription,
+    knowsAbout: t.knowsAbout,
+    sameAs: ["https://www.linkedin.com/in/federico-fuffa-741a19331/"],
+    worksFor: { "@type": "Organization", name: "Levra Labs", url: "https://www.levra-labs.it/" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": site + home[lang] + "#website",
+    url: site + home[lang],
+    name: "Federico Fuffa",
+    inLanguage: lang,
+    publisher: { "@id": site + "/#federico" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Perno",
+    operatingSystem: "Windows",
+    applicationCategory: "UtilitiesApplication",
+    url: "https://apps.microsoft.com/detail/9n5t86tbmzns",
+    author: { "@id": site + "/#federico" },
+    ...(version ? { softwareVersion: version } : {}),
+  },
+];
+---
+<Base
+  lang={lang}
+  title={t.title}
+  description={t.description}
+  path={home[lang]}
+  jsonld={jsonld}
+>
+  <section class="hero" aria-labelledby="h1" style="padding-top:clamp(28px,5vw,64px);padding-bottom:0">
+    <div class="wrap">
+      <h1 id="h1"><span class="ln"><span><b>F</b>ederico</span></span><span class="ln"><span><b>F</b>uffa</span></span></h1>
+      <p class="hero-foot mono"><span>{t.heroTags.map((x, i) => <>{i > 0 && <span class="slash" aria-hidden="true">/</span>}{x}</>)}</span><span>{t.country}</span></p>
+    </div>
+  </section>
+
+  <a class="levra" href="https://www.levra-labs.it/" target="_blank" rel="noopener" aria-label={t.levra.aria}>
+    <div class="wrap levra-in">
+      <div>
+        <span class="mono">{t.levra.kicker}</span>
+        <h2 aria-label="Levra Labs"><span aria-hidden="true"><b>L</b>evra <b>L</b>abs</span></h2>
+        <p class="levra-line">{t.levra.line}</p>
+      </div>
+      <span class="go">{t.levra.go} <span class="arr" aria-hidden="true">→</span></span>
+    </div>
+  </a>
+
+  <section id="work" aria-labelledby="w-h">
+    <div class="wrap">
+      <div class="frame"><h2 class="label" id="w-h">{t.projects.label}</h2>
+        <div>
+          <article class="perno rv">
+            <img class="pl" src="/perno-logo.webp" width="240" height="231" alt="" loading="lazy" decoding="async" />
+            <div><h3>Perno</h3><span class="mono">{t.projects.perno.kind}</span>
+              <p class="pdesc" set:html={t.projects.perno.desc} />
+            </div>
+            <a class="store"href="https://apps.microsoft.com/detail/9n5t86tbmzns" target="_blank" rel="noopener" aria-label={t.projects.perno.aria}>
+              <span class="ms" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+              <span>{t.projects.perno.cta}<small data-perno-version>{version && "v" + version}</small></span>
+            </a>
+          </article>
+          <article class="perno rv" style="--d:1">
+            <img class="pl dm-logo" src="/diiamoond-logo.png" width="48" height="48" alt="" loading="lazy" decoding="async" />
+            <div>
+              <h3>Diiamoond</h3>
+              <span class="mono">{t.projects.diiamoond.kind}</span>
+              <p class="pdesc" set:html={t.projects.diiamoond.desc} />
+            </div>
+            <a class="store visit" href="https://diiamoond.live/" target="_blank" rel="noopener" aria-label={t.projects.diiamoond.aria}>
+              <span>{t.projects.diiamoond.cta}</span>
+              <span class="arr" aria-hidden="true">↗</span>
+            </a>
+          </article>
+          <article class="perno rv" style="--d:2">
+            <svg class="pl eye" viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 12S5.3 5 12 5s10.5 7 10.5 7-3.8 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3.6"/><circle cx="12" cy="12" r="1" fill="var(--accent)" stroke="none"/></svg>
+            <div>
+              <h3>Studio Optometrico Nicastro</h3>
+              <span class="mono">{t.projects.nicastro.kind}</span>
+              <p class="pdesc" set:html={t.projects.nicastro.desc} />
+            </div>
+            <span class="status"><i aria-hidden="true"></i>{t.projects.nicastro.status}</span>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="a-h">
+    <div class="wrap">
+      <div class="frame"><h2 class="label" id="a-h">{t.about.label}</h2>
+        <div>
+          <p class="big rv">{t.about.text}</p>
+          <p class="about-meta mono rv" style="--d:1">{t.country}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" aria-labelledby="s-h">
+    <div class="wrap">
+      <div class="frame"><h2 class="label" id="s-h">{t.skills.label}</h2>
+        <div class="skills">
+          {t.skills.groups.map((s, i) => (
+            <div class="rv" style={`--d:${i}`}><h3>{s.t}</h3><ul>{s.l.map(([x, hi]) => <li class={hi === 1 ? "hi" : hi === 2 ? "dot" : undefined}>{x}</li>)}</ul></div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="c-h">
+    <div class="wrap">
+      <div class="frame"><h2 class="label" id="c-h">{t.contact.label}</h2>
+        <div>
+          <a class="mail ul rv" href="mailto:info@federicofuffa.it">info@federicofuffa.it</a>
+          <div class="contact-links rv" style="--d:1">
+            <a class="store cv" href="/Federico_Fuffa_CV.pdf" download="Federico_Fuffa_CV.pdf" aria-label={t.contact.cvAria}>
+              <svg class="dl" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path class="dl-arrow" d="M12 3v12m-5-5 5 5 5-5"/><path d="M4 20h16"/></svg>
+              <span>{t.contact.cv}<small>{t.contact.cvMeta}</small></span>
+            </a>
+            <a class="ul" href="https://www.linkedin.com/in/federico-fuffa-741a19331/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

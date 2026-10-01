@@ -1,10 +1,31 @@
+---
+import { ui, home, langs, type Lang } from "../i18n/ui";
+const { lang = "en" } = Astro.props as { lang?: Lang };
+const t = ui[lang];
+const base = home[lang];
+const names: Record<Lang, string> = { en: "English", it: "Italiano" };
+---
 <header class="site-header">
   <div class="wrap bar">
-    <a class="brand" href="/" aria-label="Federico Fuffa, home"><img class="brand-logo" src="/logo.webp" width="32" height="32" alt="" decoding="async" /><span>Federico Fuffa</span></a>
-    <nav class="nav" aria-label="Main">
-      <a href="/#work">Work</a>
-      <a href="/#about">About</a>
-      <a href="/#contact">Contact</a>
+    <a class="brand" href={base} aria-label={t.brandLabel}><img class="brand-logo" src="/logo.webp" width="32" height="32" alt="" decoding="async" /><span>Federico Fuffa</span></a>
+    <nav class="nav" aria-label={t.navLabel}>
+      <a href={base + "#work"}>{t.nav.work}</a>
+      <a href={base + "#about"}>{t.nav.about}</a>
+      <a href={base + "#contact"}>{t.nav.contact}</a>
+      <div class="lang" role="group" aria-label={t.langLabel}>
+        {langs.map((l, i) => (
+          <>
+            {i > 0 && <span class="sep" aria-hidden="true">/</span>}
+            {l === lang
+              ? <a href={home[l]} lang={l} hreflang={l} aria-label={names[l]} aria-current="true">{l.toUpperCase()}</a>
+              : <a href={home[l]} lang={l} hreflang={l} aria-label={names[l]} title={names[l]}>{l.toUpperCase()}</a>}
+          </>
+        ))}
+      </div>
+      <button class="theme-toggle" type="button" data-to-dark={t.theme.toDark} data-to-light={t.theme.toLight} aria-label={t.theme.toDark} title={t.theme.toDark}>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+      </button>
     </nav>
   </div>
 </header>
