@@ -25,7 +25,7 @@ export const ui = {
     knowsAbout: ["Web development", "Technical SEO", "Web performance", "Responsive design"],
 
     heroTags: ["Web", "Software", "Digital"],
-    country: "Italia",
+    country: "Italy",
 
     plinto: {
       aria: "Plinto Labs, digital studio. Visit plintolabs.it",
@@ -40,7 +40,7 @@ export const ui = {
         kind: "Windows app",
         desc: "A <em>modular personal hub</em>: a digital home whose rooms you install and remove <em>as you like</em>.",
         aria: "Get Perno from the Microsoft Store",
-        cta: "Get it from Microsoft Store",
+        cta: "Get it from the Microsoft Store",
       },
       diiamoond: {
         kind: "Website",
@@ -96,7 +96,7 @@ export const ui = {
     personDescription: "Studente di Informatica all'Università di Camerino. Web e software.",
     knowsAbout: ["Sviluppo web", "SEO tecnica", "Prestazioni web", "Design responsive"],
 
-    heroTags: ["Web", "Software", "Digital"],
+    heroTags: ["Web", "Software", "Digitale"],
     country: "Italia",
 
     plinto: {
@@ -111,8 +111,8 @@ export const ui = {
       perno: {
         kind: "App per Windows",
         desc: "Un <em>hub personale modulare</em>: una casa digitale di cui installi e rimuovi le stanze <em>come vuoi</em>.",
-        aria: "Scarica Perno da Microsoft Store",
-        cta: "Scaricala da Microsoft Store",
+        aria: "Scarica Perno dal Microsoft Store",
+        cta: "Scaricala dal Microsoft Store",
       },
       diiamoond: {
         kind: "Sito web",
