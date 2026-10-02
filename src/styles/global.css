@@ -102,8 +102,8 @@ ol,ul{list-style:none}
 .hero{padding-block:clamp(28px,5vw,64px) clamp(28px,4vw,48px)}
 .hero h1{font-weight:800;font-size:min(19.4vw,17.5rem);line-height:.8;letter-spacing:-.045em;text-transform:uppercase;text-align:center}
 .hero h1 .ln span{font-size:.72em}
-.levra h2 span{font-size:.72em}
-.hero h1 .ln span b,.levra h2 b{font-size:calc(1em/.72);font-weight:800}
+.plinto h2 span{font-size:.72em}
+.hero h1 .ln span b,.plinto h2 b{font-size:calc(1em/.72);font-weight:800}
 .hero h1 .ln{display:block;overflow:hidden;padding-block:.06em .02em}
 .hero h1 .ln span{display:block;transform:translateY(105%);animation:up 1s var(--ease) forwards}
 .hero h1 .ln:nth-child(2) span{animation-delay:.1s}
@@ -121,21 +121,21 @@ section{padding-block:clamp(64px,10vw,152px) 0}
 .frame.wide{grid-template-columns:1fr}
 .frame.wide>.label{padding-bottom:12px}
 
-/* levra band: full-bleed, the one loud colour on the page */
-.levra{display:block;position:relative;background:var(--accent);color:var(--on-accent);overflow:hidden;isolation:isolate;margin-top:clamp(20px,3vw,40px);transition:color .4s}
-.levra::before{content:"";position:absolute;inset:0;background:var(--ink);transform:translateY(101%);transition:transform .6s var(--ease);z-index:-1}
-.levra-in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(20px,3vw,48px);align-items:end;padding-block:clamp(36px,6vw,88px)}
-.levra .mono{display:block;margin-bottom:clamp(14px,2vw,28px)}
-.levra h2{text-align:center;font-size:min(15.4vw,13.5rem);font-weight:800;line-height:.82;letter-spacing:-.05em;text-transform:uppercase;transition:transform .6s var(--ease)}
-.levra-line{margin-top:clamp(18px,2.4vw,32px);font-size:clamp(1.05rem,1.6vw,1.5rem);font-weight:600;letter-spacing:-.015em;max-width:34ch;line-height:1.25}
-.levra .go{display:inline-flex;align-items:center;gap:14px;font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
-.levra .arr{display:inline-grid;place-items:center;width:clamp(56px,7vw,96px);height:clamp(56px,7vw,96px);border:2px solid currentColor;border-radius:50%;font-size:clamp(1.3rem,2.6vw,2.2rem);transition:transform .5s var(--ease),background .3s,color .3s,border-color .3s}
-.levra:hover,.levra:focus-visible{color:var(--paper)}
-.levra:hover::before,.levra:focus-visible::before{transform:none}
-.levra:hover h2{transform:translateX(clamp(6px,1.2vw,20px))}
-.levra:hover .arr,.levra:focus-visible .arr{background:var(--accent);border-color:var(--accent);color:var(--on-accent);transform:rotate(45deg)}
-.levra:focus-visible{outline-offset:-6px;outline-color:var(--ink)}
-@media(max-width:700px){.levra-in{grid-template-columns:1fr}.levra .go{justify-self:start}}
+/* plinto band: full-bleed, the one loud colour on the page */
+.plinto{display:block;position:relative;background:var(--accent);color:var(--on-accent);overflow:hidden;isolation:isolate;margin-top:clamp(20px,3vw,40px);transition:color .4s}
+.plinto::before{content:"";position:absolute;inset:0;background:var(--ink);transform:translateY(101%);transition:transform .6s var(--ease);z-index:-1}
+.plinto-in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(20px,3vw,48px);align-items:end;padding-block:clamp(36px,6vw,88px)}
+.plinto .mono{display:block;margin-bottom:clamp(14px,2vw,28px)}
+.plinto h2{text-align:center;font-size:min(15.4vw,13.5rem);font-weight:800;line-height:.82;letter-spacing:-.05em;text-transform:uppercase;transition:transform .6s var(--ease)}
+.plinto-line{margin-top:clamp(18px,2.4vw,32px);font-size:clamp(1.05rem,1.6vw,1.5rem);font-weight:600;letter-spacing:-.015em;max-width:34ch;line-height:1.25}
+.plinto .go{display:inline-flex;align-items:center;gap:14px;font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.plinto .arr{display:inline-grid;place-items:center;width:clamp(56px,7vw,96px);height:clamp(56px,7vw,96px);border:2px solid currentColor;border-radius:50%;font-size:clamp(1.3rem,2.6vw,2.2rem);transition:transform .5s var(--ease),background .3s,color .3s,border-color .3s}
+.plinto:hover,.plinto:focus-visible{color:var(--paper)}
+.plinto:hover::before,.plinto:focus-visible::before{transform:none}
+.plinto:hover h2{transform:translateX(clamp(6px,1.2vw,20px))}
+.plinto:hover .arr,.plinto:focus-visible .arr{background:var(--accent);border-color:var(--accent);color:var(--on-accent);transform:rotate(45deg)}
+.plinto:focus-visible{outline-offset:-6px;outline-color:var(--ink)}
+@media(max-width:700px){.plinto-in{grid-template-columns:1fr}.plinto .go{justify-self:start}}
 
 /* perno: compact project card with a Microsoft Store button */
 .perno{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(16px,3vw,40px);align-items:center;padding:clamp(20px,2.6vw,32px) 0;border-bottom:1px solid var(--line)}
@@ -226,5 +226,5 @@ section{padding-block:clamp(64px,10vw,152px) 0}
 
 
 /* subtitles: italic serif */
-.hero-foot,.levra .mono,.levra-line,.perno .mono,.about-meta{font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;letter-spacing:.01em;font-size:1.1rem}
-.levra-line{font-size:clamp(1.15rem,1.7vw,1.6rem);letter-spacing:0}
+.hero-foot,.plinto .mono,.plinto-line,.perno .mono,.about-meta{font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;letter-spacing:.01em;font-size:1.1rem}
+.plinto-line{font-size:clamp(1.15rem,1.7vw,1.6rem);letter-spacing:0}

@@ -18,7 +18,7 @@ export const ui = {
     theme: { toDark: "Switch to dark theme", toLight: "Switch to light theme" },
 
     title: "Federico Fuffa · Web & software",
-    description: "Federico Fuffa. Web and software. Computer Science student at the University of Camerino. Selected work: Levra Labs, Perno and Diiamoond.",
+    description: "Federico Fuffa. Web and software. Computer Science student at the University of Camerino. Selected work: Plinto Labs, Perno and Diiamoond.",
     ogAlt: "Federico Fuffa, web and software",
     jobTitle: "Web and software developer",
     personDescription: "Computer Science student at the University of Camerino. Web and software.",
@@ -27,11 +27,11 @@ export const ui = {
     heroTags: ["Web", "Software", "Digital"],
     country: "Italia",
 
-    levra: {
-      aria: "Levra Labs, digital studio. Visit levra-labs.it",
+    plinto: {
+      aria: "Plinto Labs, digital studio. Visit plintolabs.it",
       kicker: "Digital studio",
       line: "Websites, software and systems for businesses and professionals.",
-      go: "Visit Levra Labs",
+      go: "Visit Plinto Labs",
     },
 
     projects: {
@@ -90,7 +90,7 @@ export const ui = {
     theme: { toDark: "Passa al tema scuro", toLight: "Passa al tema chiaro" },
 
     title: "Federico Fuffa · Web e software",
-    description: "Federico Fuffa. Web e software. Studente di Informatica all'Università di Camerino. Progetti selezionati: Levra Labs, Perno e Diiamoond.",
+    description: "Federico Fuffa. Web e software. Studente di Informatica all'Università di Camerino. Progetti selezionati: Plinto Labs, Perno e Diiamoond.",
     ogAlt: "Federico Fuffa, web e software",
     jobTitle: "Sviluppatore web e software",
     personDescription: "Studente di Informatica all'Università di Camerino. Web e software.",
@@ -99,11 +99,11 @@ export const ui = {
     heroTags: ["Web", "Software", "Digital"],
     country: "Italia",
 
-    levra: {
-      aria: "Levra Labs, studio digitale. Visita levra-labs.it",
+    plinto: {
+      aria: "Plinto Labs, studio digitale. Visita plintolabs.it",
       kicker: "Studio digitale",
       line: "Siti web, software e sistemi per aziende e professionisti.",
-      go: "Visita Levra Labs",
+      go: "Visita Plinto Labs",
     },
 
     projects: {
