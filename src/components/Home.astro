@@ -60,6 +60,11 @@ const jsonld = [
   <section class="hero" aria-labelledby="h1" style="padding-top:clamp(28px,5vw,64px);padding-bottom:0">
     <div class="wrap">
       <h1 id="h1"><span class="ln"><span><b>F</b>ederico</span></span><span class="ln"><span><b>F</b>uffa</span></span></h1>
+      <p class="hero-sub">{t.heroSub}</p>
+      <div class="hero-cta">
+        <a class="store visit" href="#contact"><span>{t.cta.contact}</span><span class="arr" aria-hidden="true">↗</span></a>
+        <a class="ul" href="#work">{t.cta.work} <span aria-hidden="true">↓</span></a>
+      </div>
       <p class="hero-foot mono"><span>{t.heroTags.map((x, i) => <>{i > 0 && <span class="slash" aria-hidden="true">/</span>}{x}</>)}</span><span>{t.country}</span></p>
     </div>
   </section>

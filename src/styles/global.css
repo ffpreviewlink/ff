@@ -101,14 +101,21 @@ ol,ul{list-style:none}
 /* hero */
 .hero{padding-block:clamp(28px,5vw,64px) clamp(28px,4vw,48px)}
 .hero h1{font-weight:800;font-size:min(19.4vw,17.5rem);line-height:.8;letter-spacing:-.045em;text-transform:uppercase;text-align:center}
-.hero h1 .ln span{font-size:.72em}
+.hero h1 .ln>span{font-size:.72em}
 .plinto h2 span{font-size:.72em}
-.hero h1 .ln span b,.plinto h2 b{font-size:calc(1em/.72);font-weight:800}
+.hero h1 .ln>span b,.plinto h2 b{font-size:calc(1em/.72);font-weight:800}
 .hero h1 .ln{display:block;overflow:hidden;padding-block:.06em .02em}
-.hero h1 .ln span{display:block;transform:translateY(105%);animation:up 1s var(--ease) forwards}
-.hero h1 .ln:nth-child(2) span{animation-delay:.1s}
+.hero h1 .ln>span{display:block;transform:translateY(105%);animation:up 1s var(--ease) forwards}
+.hero h1 .ln:nth-child(2)>span{animation-delay:.1s}
 @keyframes up{to{transform:none}}
-.hero-foot{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:clamp(20px,3vw,40px);padding-top:16px;border-top:1px solid var(--line);opacity:0;animation:fade .8s var(--ease) .5s forwards}
+/* letters react to the pointer: motion.js splits the name and sets --p (0..1) on each .ch */
+.hero h1,.hero h1 .ch{cursor:default}
+.hero h1 .ch{display:inline-block;--p:0;color:color-mix(in srgb,var(--accent) calc(var(--p)*100%),var(--ink));transform:translateY(calc(var(--p)*-.05em));transition:color .25s,transform .25s var(--ease)}
+.hero-sub{max-width:62ch;margin:clamp(20px,3vw,40px) auto 0;text-align:center;font-family:var(--serif);font-style:italic;font-size:clamp(1.2rem,2vw,1.75rem);font-weight:400;letter-spacing:.01em;line-height:1.3;text-wrap:balance;opacity:0;animation:fade .8s var(--ease) .35s forwards}
+.hero-cta{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:16px 32px;margin-top:clamp(20px,2.6vw,32px);opacity:0;animation:fade .8s var(--ease) .5s forwards}
+.hero-cta .ul{font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;min-height:44px;display:inline-flex;align-items:center;gap:.5em}
+@media(max-width:520px){.hero-cta .store{flex:1 1 100%;justify-content:center}}
+.hero-foot{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:clamp(20px,3vw,40px);padding-top:16px;border-top:1px solid var(--line);opacity:0;animation:fade .8s var(--ease) .65s forwards}
 .hero-foot .slash{color:var(--accent);padding-inline:.35em}
 @keyframes fade{to{opacity:1}}
 
@@ -172,14 +179,6 @@ section{padding-block:clamp(64px,10vw,152px) 0}
 .store.cv:hover .dl-arrow,.store.cv:focus-visible .dl-arrow{transform:translateY(3px)}
 @media(max-width:700px){.contact-links .store.cv{flex:1 1 100%;justify-content:center}}
 
-/* buttons */
-.btn{display:inline-flex;align-items:center;gap:16px;min-height:60px;padding:0 24px 0 20px;background:var(--ink);color:var(--paper);border-radius:999px;position:relative;overflow:hidden;isolation:isolate;font-weight:700;letter-spacing:-.01em}
-.btn::before{content:"";position:absolute;inset:0;background:var(--accent);transform:translateY(101%);transition:transform .45s var(--ease);z-index:-1}
-.btn:hover::before,.btn:focus-visible::before{transform:none}
-.btn:hover,.btn:focus-visible{color:var(--on-accent)}
-.btn .arr{transition:transform .35s var(--ease)}
-.btn:hover .arr{transform:translate(3px,-3px)}
-
 /* about */
 .big{font-size:clamp(1.9rem,4.6vw,4.4rem);font-weight:600;line-height:1.06;letter-spacing:-.035em;max-width:20ch}
 .big em{font-style:normal;color:var(--accent)}
@@ -193,7 +192,8 @@ section{padding-block:clamp(64px,10vw,152px) 0}
 .skills li.hi,.skills li.dot{display:flex;align-items:flex-start;gap:.5em}
 .skills li.hi::before,.skills li.dot::before{content:"";width:.4em;height:.4em;border-radius:50%;background:var(--accent);flex:none;margin-top:.55em}
 .skills li:hover{transform:translateX(6px);color:var(--accent)}
-@media(max-width:980px){.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:1100px){.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:359px){.skills{grid-template-columns:1fr}}
 
 /* contact */
 .frame>div{container-type:inline-size}
@@ -206,12 +206,15 @@ section{padding-block:clamp(64px,10vw,152px) 0}
 /* footer */
 .site-footer{margin-top:clamp(72px,10vw,152px);border-top:1px solid var(--line)}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:20px;font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase}
-.foot a{min-height:44px;display:inline-flex;align-items:center}
+.foot a{min-height:44px;display:inline-flex;align-items:center;white-space:nowrap}
+@media(max-width:700px){.foot{align-items:flex-start}.foot .copy span{display:block}}
+@media(max-width:400px){.foot{flex-direction:column;gap:0}}
 
 /* 404 */
 .nf{padding-block:clamp(48px,8vw,120px)}
 .nf h1{font-size:clamp(3rem,13vw,12rem);font-weight:800;letter-spacing:-.06em;line-height:.85;text-transform:uppercase}
 .nf p{margin:24px 0 32px}
+.nf-actions{display:flex;flex-wrap:wrap;gap:16px}
 
 /* reveal */
 .js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--d,0)*80ms)}
@@ -220,8 +223,8 @@ section{padding-block:clamp(64px,10vw,152px) 0}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .js .rv{opacity:1;transform:none}
-  .hero h1 .ln span{transform:none}
-  .hero-foot{opacity:1}
+  .hero h1 .ln>span{transform:none}
+  .hero-foot,.hero-sub,.hero-cta{opacity:1}
 }
 
 

@@ -12,6 +12,37 @@ if (still || !("IntersectionObserver" in window)) {
   items.forEach((el) => io.observe(el));
 }
 
+// hero name: letters light up and lift as the pointer gets close
+const h1 = document.querySelector(".hero h1");
+if (h1 && !still && matchMedia("(hover:hover) and (pointer:fine)").matches) {
+  const lines = h1.querySelectorAll(".ln");
+  h1.setAttribute("aria-label", [...lines].map((l) => l.textContent).join(" "));
+  lines.forEach((l) => l.setAttribute("aria-hidden", "true"));
+  const split = (node) => {
+    for (const n of [...node.childNodes]) {
+      if (n.nodeType === 3) {
+        n.replaceWith(...[...n.data].map((c) => Object.assign(document.createElement("span"), { className: "ch", textContent: c })));
+      } else split(n);
+    }
+  };
+  lines.forEach(split);
+  const chars = [...h1.querySelectorAll(".ch")];
+  let pt = null, raf = 0;
+  const radius = () => Math.max(120, h1.getBoundingClientRect().width * 0.14);
+  const paint = () => {
+    raf = 0;
+    const r = radius();
+    for (const c of chars) {
+      const b = c.getBoundingClientRect();
+      const d = pt ? Math.hypot(pt.x - (b.left + b.width / 2), pt.y - (b.top + b.height / 2)) : r;
+      c.style.setProperty("--p", Math.max(0, 1 - d / r).toFixed(2));
+    }
+  };
+  const queue = () => { if (!raf) raf = requestAnimationFrame(paint); };
+  addEventListener("pointermove", (e) => { pt = { x: e.clientX, y: e.clientY }; queue(); }, { passive: true });
+  document.documentElement.addEventListener("pointerleave", () => { pt = null; queue(); });
+}
+
 // Perno: latest version from GitHub releases (build-time value is the fallback)
 const ver = document.querySelector("[data-perno-version]");
 if (ver) {

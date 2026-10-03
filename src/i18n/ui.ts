@@ -25,6 +25,8 @@ export const ui = {
     knowsAbout: ["Web development", "Technical SEO", "Web performance", "Responsive design"],
 
     heroTags: ["Web", "Software", "Digital"],
+    heroSub: "Web and software developer. Fast, polished, optimized websites for businesses and professionals.",
+    cta: { work: "See my projects", contact: "Let's work together" },
     country: "Italy",
 
     plinto: {
@@ -78,7 +80,7 @@ export const ui = {
       cvMeta: "PDF · IT",
     },
 
-    footer: { rights: "© 2026 Federico Fuffa. All rights reserved.", top: "Back to top ↑" },
+    footer: { copy: "© 2026 Federico Fuffa.", rights: "All rights reserved.", top: "Back to top ↑" },
   },
 
   it: {
@@ -97,6 +99,8 @@ export const ui = {
     knowsAbout: ["Sviluppo web", "SEO tecnica", "Prestazioni web", "Design responsive"],
 
     heroTags: ["Web", "Software", "Digitale"],
+    heroSub: "Sviluppatore web e software. Siti veloci, curati e ottimizzati per aziende e professionisti.",
+    cta: { work: "Scopri i miei progetti", contact: "Lavoriamo insieme" },
     country: "Italia",
 
     plinto: {
@@ -149,6 +153,6 @@ export const ui = {
       cvMeta: "PDF · IT",
     },
 
-    footer: { rights: "© 2026 Federico Fuffa. Tutti i diritti riservati.", top: "Torna su ↑" },
+    footer: { copy: "© 2026 Federico Fuffa.", rights: "Tutti i diritti riservati.", top: "Torna su ↑" },
   },
 } as const;
