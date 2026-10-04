@@ -32,6 +32,7 @@ export const ui = {
     plinto: {
       aria: "Plinto Labs, digital studio. Visit plintolabs.it",
       kicker: "Digital studio",
+      role: "Occasional self-employed worker at:",
       line: "Websites, software and systems for businesses and professionals.",
       go: "Visit Plinto Labs",
     },
@@ -80,7 +81,7 @@ export const ui = {
       cvMeta: "PDF · IT",
     },
 
-    footer: { copy: "© 2026 Federico Fuffa.", rights: "All rights reserved.", top: "Back to top ↑" },
+    footer: { copy: "© 2026 Federico Fuffa.", rights: "All rights reserved.", role: "Occasional self-employed worker at:", top: "Back to top ↑" },
   },
 
   it: {
@@ -106,6 +107,7 @@ export const ui = {
     plinto: {
       aria: "Plinto Labs, studio digitale. Visita plintolabs.it",
       kicker: "Studio digitale",
+      role: "Lavoratore autonomo occasionale presso:",
       line: "Siti web, software e sistemi per aziende e professionisti.",
       go: "Visita Plinto Labs",
     },
@@ -153,6 +155,6 @@ export const ui = {
       cvMeta: "PDF · IT",
     },
 
-    footer: { copy: "© 2026 Federico Fuffa.", rights: "Tutti i diritti riservati.", top: "Torna su ↑" },
+    footer: { copy: "© 2026 Federico Fuffa.", rights: "Tutti i diritti riservati.", role: "Lavoratore autonomo occasionale presso:", top: "Torna su ↑" },
   },
 } as const;

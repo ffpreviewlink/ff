@@ -133,8 +133,10 @@ section{padding-block:clamp(64px,10vw,152px) 0}
 .plinto::before{content:"";position:absolute;inset:0;background:var(--ink);transform:translateY(101%);transition:transform .6s var(--ease);z-index:-1}
 .plinto-in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(20px,3vw,48px);align-items:end;padding-block:clamp(36px,6vw,88px)}
 .plinto .mono{display:block;margin-bottom:clamp(14px,2vw,28px)}
+.plinto .mono.plinto-role{margin-bottom:clamp(6px,.9vw,12px);font-size:clamp(1.25rem,2.2vw,2rem);font-style:normal;font-weight:700;letter-spacing:-.01em;line-height:1.15}
+.plinto .plinto-kicker{margin:clamp(20px,2.8vw,40px) 0 0}
 .plinto h2{text-align:center;font-size:min(15.4vw,13.5rem);font-weight:800;line-height:.82;letter-spacing:-.05em;text-transform:uppercase;transition:transform .6s var(--ease)}
-.plinto-line{margin-top:clamp(18px,2.4vw,32px);font-size:clamp(1.05rem,1.6vw,1.5rem);font-weight:600;letter-spacing:-.015em;max-width:34ch;line-height:1.25}
+.plinto-line{margin-top:clamp(4px,.6vw,8px);font-size:clamp(1.05rem,1.6vw,1.5rem);font-weight:600;letter-spacing:-.015em;max-width:34ch;line-height:1.25}
 .plinto .go{display:inline-flex;align-items:center;gap:14px;font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
 .plinto .arr{display:inline-grid;place-items:center;width:clamp(56px,7vw,96px);height:clamp(56px,7vw,96px);border:2px solid currentColor;border-radius:50%;font-size:clamp(1.3rem,2.6vw,2.2rem);transition:transform .5s var(--ease),background .3s,color .3s,border-color .3s}
 .plinto:hover,.plinto:focus-visible{color:var(--paper)}
@@ -206,6 +208,7 @@ section{padding-block:clamp(64px,10vw,152px) 0}
 /* footer */
 .site-footer{margin-top:clamp(72px,10vw,152px);border-top:1px solid var(--line)}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:20px;font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase}
+.foot .role a{min-height:0;display:inline;text-decoration:underline;text-underline-offset:3px}
 .foot a{min-height:44px;display:inline-flex;align-items:center;white-space:nowrap}
 @media(max-width:700px){.foot{align-items:flex-start}.foot .copy span{display:block}}
 @media(max-width:400px){.foot{flex-direction:column;gap:0}}
