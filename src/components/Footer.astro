@@ -1,5 +1,5 @@
 ---
-import { ui, type Lang } from "../i18n/ui";
+import { ui, legal, type Lang } from "../i18n/ui";
 const { lang = "en" } = Astro.props as { lang?: Lang };
 const t = ui[lang].footer;
 ---
@@ -7,7 +7,8 @@ const t = ui[lang].footer;
   <div class="wrap foot">
     <div>
       <p class="copy"><span>{t.copy}</span> <span>{t.rights}</span></p>
-      <p class="role">{t.role} <a href="https://www.plintolabs.it/" target="_blank" rel="noopener">Plinto Labs</a></p>
+      <p class="role"><span>{t.role}</span> <a href="https://www.plintolabs.it/" target="_blank" rel="noopener">Plinto Labs</a></p>
+      <p class="legal-links"><a href={legal.privacy[lang]}>{t.privacy}</a> <a href={legal.cookie[lang]}>{t.cookies}</a> <button type="button" data-cookie-settings>{t.settings}</button></p>
     </div>
     <p><a href="#top">{t.top}</a></p>
   </div>

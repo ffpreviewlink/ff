@@ -5,6 +5,12 @@ export const defaultLang: Lang = "en";
 /** Home page path for each language (trailingSlash is "always"). */
 export const home: Record<Lang, string> = { en: "/", it: "/it/" };
 
+/** Legal pages path for each language. */
+export const legal: Record<"privacy" | "cookie", Record<Lang, string>> = {
+  privacy: { en: "/privacy-policy/", it: "/it/privacy-policy/" },
+  cookie: { en: "/cookie-policy/", it: "/it/cookie-policy/" },
+};
+
 export const locale: Record<Lang, string> = { en: "en_US", it: "it_IT" };
 
 // Strings marked "html" are trusted constants rendered with set:html (they contain <em>).
@@ -81,7 +87,15 @@ export const ui = {
       cvMeta: "PDF · IT",
     },
 
-    footer: { copy: "© 2026 Federico Fuffa.", rights: "All rights reserved.", role: "Occasional self-employed worker at:", top: "Back to top ↑" },
+    footer: { copy: "© 2026 Federico Fuffa.", rights: "All rights reserved.", role: "Occasional self-employed worker at:", top: "Back to top ↑", privacy: "Privacy Policy", cookies: "Cookie Policy", settings: "Cookie settings" },
+    cookie: {
+      label: "Cookie notice",
+      title: "Cookies",
+      text: "With your consent I use Google Analytics to measure how the site is used, in aggregate. Nothing is loaded until you choose, and you can change your mind at any time.",
+      accept: "Accept",
+      reject: "Reject",
+      more: "Cookie Policy",
+    },
   },
 
   it: {
@@ -155,6 +169,14 @@ export const ui = {
       cvMeta: "PDF · IT",
     },
 
-    footer: { copy: "© 2026 Federico Fuffa.", rights: "Tutti i diritti riservati.", role: "Lavoratore autonomo occasionale presso:", top: "Torna su ↑" },
+    footer: { copy: "© 2026 Federico Fuffa.", rights: "Tutti i diritti riservati.", role: "Lavoratore autonomo occasionale presso:", top: "Torna su ↑", privacy: "Privacy Policy", cookies: "Cookie Policy", settings: "Impostazioni cookie" },
+    cookie: {
+      label: "Informativa cookie",
+      title: "Cookie",
+      text: "Con il tuo consenso uso Google Analytics per misurare, in forma aggregata, come viene usato il sito. Nulla viene caricato finché non scegli, e puoi cambiare idea in qualsiasi momento.",
+      accept: "Accetta",
+      reject: "Rifiuta",
+      more: "Cookie Policy",
+    },
   },
 } as const;

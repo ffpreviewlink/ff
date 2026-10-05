@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import CookieBanner from "../components/CookieBanner.astro";
 import { ui, home, locale, langs, type Lang } from "../i18n/ui";
 
 interface Props {
@@ -11,8 +12,10 @@ interface Props {
   path: string;
   jsonld?: object[];
   noindex?: boolean;
+  /** Equivalent page in each language, when it differs from the home page. */
+  alt?: Record<Lang, string>;
 }
-const { lang = "en", title, description, path, jsonld = [], noindex = false } = Astro.props;
+const { lang = "en", title, description, path, jsonld = [], noindex = false, alt = home } = Astro.props;
 const t = ui[lang];
 const site = "https://federicofuffa.it";
 const url = site + path;
@@ -27,8 +30,8 @@ const image = site + "/og.png";
     <meta name="description" content={description} />
     {!noindex && <link rel="canonical" href={url} />}
     {noindex && <meta name="robots" content="noindex" />}
-    {!noindex && langs.map((l) => <link rel="alternate" hreflang={l} href={site + home[l]} />)}
-    {!noindex && <link rel="alternate" hreflang="x-default" href={site + home.en} />}
+    {!noindex && langs.map((l) => <link rel="alternate" hreflang={l} href={site + alt[l]} />)}
+    {!noindex && <link rel="alternate" hreflang="x-default" href={site + alt.en} />}
     <meta name="theme-color" content="#f3f1ec" />
     <meta name="color-scheme" content="light dark" />
 
@@ -65,22 +68,16 @@ const image = site + "/og.png";
         document.querySelector('meta[name="theme-color"]').content = t === "dark" ? "#111110" : "#f3f1ec";
       })();
     </script>
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-E0BFBVL026"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag("js", new Date());
-      gtag("config", "G-E0BFBVL026");
-    </script>
     {jsonld.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
   </head>
   <body id="top">
     <a class="skip" href="#main">{t.skip}</a>
-    <Header lang={lang} />
+    <Header lang={lang} alt={alt} />
     <main id="main">
       <slot />
     </main>
     <Footer lang={lang} />
+    <CookieBanner lang={lang} />
     <script src="../scripts/motion.js"></script>
   </body>
 </html>

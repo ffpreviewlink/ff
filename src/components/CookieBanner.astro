@@ -1,0 +1,68 @@
+---
+import { ui, legal, type Lang } from "../i18n/ui";
+const { lang = "en" } = Astro.props as { lang?: Lang };
+const t = ui[lang].cookie;
+---
+<div class="cb" id="cookie-banner" role="dialog" aria-modal="false" aria-labelledby="cb-t" hidden>
+  <div class="wrap cb-in">
+    <div class="cb-copy">
+      <p class="mono" id="cb-t">{t.title}</p>
+      <p>{t.text} <a class="ul" href={legal.cookie[lang]}>{t.more}</a></p>
+    </div>
+    <div class="cb-actions">
+      <button type="button" class="cb-btn" data-consent="denied">{t.reject}</button>
+      <button type="button" class="cb-btn" data-consent="granted">{t.accept}</button>
+    </div>
+  </div>
+</div>
+<script is:inline>
+  (function () {
+    var ID = "G-E0BFBVL026", KEY = "cookie-consent", TTL = 15552000000; // choice is remembered for 180 days
+    var box = document.getElementById("cookie-banner");
+    function read() {
+      try {
+        var c = JSON.parse(localStorage.getItem(KEY));
+        if (c && (c.v === "granted" || c.v === "denied") && Date.now() - c.t < TTL) return c.v;
+      } catch (e) {}
+      return null;
+    }
+    function write(v) { try { localStorage.setItem(KEY, JSON.stringify({ v: v, t: Date.now() })); } catch (e) {} }
+    function load() {
+      if (window.__gaLoaded) return;
+      window.__gaLoaded = true;
+      window["ga-disable-" + ID] = false;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag("js", new Date());
+      window.gtag("config", ID);
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=" + ID;
+      document.head.appendChild(s);
+    }
+    function purge() {
+      window["ga-disable-" + ID] = true;
+      var names = ["_ga", "_ga_" + ID.replace("G-", "")], parts = location.hostname.split("."), hosts = [""];
+      for (var i = 0; i < parts.length - 1; i++) hosts.push(";domain=." + parts.slice(i).join("."));
+      names.forEach(function (n) {
+        hosts.forEach(function (h) { document.cookie = n + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/" + h; });
+      });
+    }
+    function show() { box.hidden = false; }
+    function choose(v) {
+      write(v);
+      box.hidden = true;
+      if (v === "granted") load(); else purge();
+    }
+    var v = read();
+    if (v === "granted") load();
+    else if (v === null) show();
+    box.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-consent]");
+      if (b) choose(b.getAttribute("data-consent"));
+    });
+    document.addEventListener("click", function (e) {
+      if (e.target.closest("[data-cookie-settings]")) { show(); box.querySelector("button").focus(); }
+    });
+  })();
+</script>

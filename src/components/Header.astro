@@ -1,6 +1,6 @@
 ---
 import { ui, home, langs, type Lang } from "../i18n/ui";
-const { lang = "en" } = Astro.props as { lang?: Lang };
+const { lang = "en", alt = home } = Astro.props as { lang?: Lang; alt?: Record<Lang, string> };
 const t = ui[lang];
 const base = home[lang];
 const names: Record<Lang, string> = { en: "English", it: "Italiano" };
@@ -17,8 +17,8 @@ const names: Record<Lang, string> = { en: "English", it: "Italiano" };
           <>
             {i > 0 && <span class="sep" aria-hidden="true">/</span>}
             {l === lang
-              ? <a href={home[l]} lang={l} hreflang={l} aria-label={names[l]} aria-current="true">{l.toUpperCase()}</a>
-              : <a href={home[l]} lang={l} hreflang={l} aria-label={names[l]} title={names[l]}>{l.toUpperCase()}</a>}
+              ? <a href={alt[l]} lang={l} hreflang={l} aria-label={names[l]} aria-current="true">{l.toUpperCase()}</a>
+              : <a href={alt[l]} lang={l} hreflang={l} aria-label={names[l]} title={names[l]}>{l.toUpperCase()}</a>}
           </>
         ))}
       </div>

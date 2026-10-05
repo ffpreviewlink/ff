@@ -1,0 +1,29 @@
+---
+import Base from "../layouts/Base.astro";
+import { legal, type Lang } from "../i18n/ui";
+import { legalDocs } from "../i18n/legal";
+
+interface Props { lang: Lang; doc: "privacy" | "cookie" }
+const { lang, doc } = Astro.props;
+const d = legalDocs[doc][lang];
+---
+<Base lang={lang} title={d.title} description={d.description} path={legal[doc][lang]} alt={legal[doc]}>
+  <article class="legal">
+    <div class="wrap">
+      <header class="legal-head">
+        <p class="mono">{d.kicker}</p>
+        <h1>{d.h1}</h1>
+        <p class="mono legal-date">{d.updated}</p>
+      </header>
+      <div class="legal-body">
+        <p class="legal-intro" set:html={d.intro} />
+        {d.sections.map((s, i) => (
+          <section aria-labelledby={`l${i}`}>
+            <h2 id={`l${i}`}><span class="mono">{String(i + 1).padStart(2, "0")}</span>{s.h}</h2>
+            <div set:html={s.html} />
+          </section>
+        ))}
+      </div>
+    </div>
+  </article>
+</Base>

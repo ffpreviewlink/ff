@@ -133,7 +133,7 @@ section{padding-block:clamp(64px,10vw,152px) 0}
 .plinto::before{content:"";position:absolute;inset:0;background:var(--ink);transform:translateY(101%);transition:transform .6s var(--ease);z-index:-1}
 .plinto-in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(20px,3vw,48px);align-items:end;padding-block:clamp(36px,6vw,88px)}
 .plinto .mono{display:block;margin-bottom:clamp(14px,2vw,28px)}
-.plinto .mono.plinto-role{margin-bottom:clamp(6px,.9vw,12px);font-size:clamp(1.25rem,2.2vw,2rem);font-style:normal;font-weight:700;letter-spacing:-.01em;line-height:1.15}
+.plinto .mono.plinto-role{margin-bottom:clamp(6px,.9vw,12px);font-size:min(clamp(1.25rem,2.2vw,2rem),calc((100vw - 2*var(--gut))/24));white-space:nowrap;font-style:normal;font-weight:700;letter-spacing:-.01em;line-height:1.15}
 .plinto .plinto-kicker{margin:clamp(20px,2.8vw,40px) 0 0}
 .plinto h2{text-align:center;font-size:min(15.4vw,13.5rem);font-weight:800;line-height:.82;letter-spacing:-.05em;text-transform:uppercase;transition:transform .6s var(--ease)}
 .plinto-line{margin-top:clamp(4px,.6vw,8px);font-size:clamp(1.05rem,1.6vw,1.5rem);font-weight:600;letter-spacing:-.015em;max-width:34ch;line-height:1.25}
@@ -208,10 +208,10 @@ section{padding-block:clamp(64px,10vw,152px) 0}
 /* footer */
 .site-footer{margin-top:clamp(72px,10vw,152px);border-top:1px solid var(--line)}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:20px;font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase}
+.foot .role span{white-space:nowrap;font-size:min(1em,calc((100vw - 2*var(--gut))/27))}
 .foot .role a{min-height:0;display:inline;text-decoration:underline;text-underline-offset:3px}
 .foot a{min-height:44px;display:inline-flex;align-items:center;white-space:nowrap}
-@media(max-width:700px){.foot{align-items:flex-start}.foot .copy span{display:block}}
-@media(max-width:400px){.foot{flex-direction:column;gap:0}}
+@media(max-width:700px){.foot{align-items:flex-start;flex-direction:column;gap:0}.foot .copy span{display:block}}
 
 /* 404 */
 .nf{padding-block:clamp(48px,8vw,120px)}
@@ -234,3 +234,50 @@ section{padding-block:clamp(64px,10vw,152px) 0}
 /* subtitles: italic serif */
 .hero-foot,.plinto .mono,.plinto-line,.perno .mono,.about-meta{font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;letter-spacing:.01em;font-size:1.1rem}
 .plinto-line{font-size:clamp(1.15rem,1.7vw,1.6rem);letter-spacing:0}
+
+/* legal pages */
+.legal{padding-block:clamp(40px,7vw,104px) 0}
+.legal-head{border-bottom:1px solid var(--line);padding-bottom:clamp(24px,4vw,48px)}
+.legal h1{margin:16px 0 20px;font-size:clamp(2.6rem,9.5vw,9rem);font-weight:800;letter-spacing:-.05em;line-height:.9;text-transform:uppercase;overflow-wrap:anywhere}
+.legal-date{color:var(--grey)}
+.legal-body{max-width:78ch;padding-top:clamp(24px,4vw,48px)}
+.legal-body>section{padding-block:clamp(20px,3vw,36px) 0;border-top:1px solid var(--soft);margin-top:clamp(20px,3vw,36px)}
+.legal-intro{font-size:1.15em;line-height:1.5}
+.legal h2{display:flex;gap:16px;align-items:baseline;margin-bottom:14px;font-size:clamp(1.3rem,2.4vw,1.8rem);font-weight:800;letter-spacing:-.025em;line-height:1.15}
+.legal h2 .mono{color:var(--accent);flex:none}
+.legal h3{margin:22px 0 8px;font-family:var(--mono);font-size:.78rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+.legal-body p,.legal-body li{font-weight:500;overflow-wrap:anywhere}
+.legal-body p+p,.legal-body p+ul,.legal-body ul+p,.legal-body p+.tbl,.legal-body .tbl+p{margin-top:12px}
+.legal-body ul{list-style:none;display:grid;gap:8px}
+.legal-body li{position:relative;padding-left:1.2em}
+.legal-body li::before{content:"";position:absolute;left:0;top:.62em;width:.4em;height:.4em;border-radius:50%;background:var(--accent)}
+.legal-body code{font-family:var(--mono);font-size:.85em;background:var(--soft);padding:.1em .35em;border-radius:3px;overflow-wrap:anywhere}
+.tbl{margin-top:14px;border:1px solid var(--line)}
+.tbl table{width:100%;border-collapse:collapse;font-size:.92rem}
+.tbl th{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-align:left;border-bottom:1px solid var(--line)}
+.tbl th,.tbl td{padding:12px 14px;vertical-align:top}
+.tbl tr+tr td{border-top:1px solid var(--soft)}
+@media(max-width:700px){
+  .tbl thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .tbl table,.tbl tbody,.tbl tr,.tbl td{display:block}
+  .tbl tr+tr{border-top:1px solid var(--line)}
+  .tbl tr+tr td{border-top:0}
+  .tbl td{padding:8px 14px}
+  .tbl td::before{content:attr(data-label);display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--grey)}
+}
+
+/* footer legal links */
+.legal-links{display:flex;flex-wrap:wrap;gap:0 20px;margin-top:6px}
+.legal-links a,.legal-links button{font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;min-height:44px;display:inline-flex;align-items:center;text-decoration:underline;text-underline-offset:3px}
+.legal-links a:hover,.legal-links button:hover{color:var(--accent)}
+
+/* cookie banner */
+.cb{position:fixed;left:0;right:0;bottom:0;z-index:90;background:var(--paper);color:var(--ink);border-top:1px solid var(--line);box-shadow:0 -12px 32px rgba(0,0,0,.12)}
+.cb[hidden]{display:none}
+.cb-in{display:flex;gap:16px clamp(20px,4vw,56px);align-items:center;justify-content:space-between;padding-block:16px}
+.cb-copy{max-width:78ch;font-size:.92rem;line-height:1.45}
+.cb-copy .mono{margin-bottom:4px}
+.cb-actions{display:flex;gap:12px;flex:none}
+.cb-btn{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;min-height:44px;min-width:120px;padding:0 22px;background:var(--ink);color:var(--paper);border:1.5px solid var(--ink);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.cb-btn:hover{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+@media(max-width:700px){.cb-in{flex-direction:column;align-items:stretch}.cb-actions>*{flex:1}}
