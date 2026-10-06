@@ -53,13 +53,18 @@ export const ui = {
       },
       diiamoond: {
         kind: "Website",
-        desc: "Portfolio for a Dublin music producer: <em>multi-platinum</em>, <em>multi-gold</em>, and a credit on a <em>Netflix film</em>.",
+        desc: "Portfolio for a <em>Dublin</em> music producer: <em>multi-platinum</em>, <em>multi-gold</em>, and a credit on a <em>Netflix film</em>.",
         aria: "Visit diiamoond.live",
         cta: "Visit diiamoond.live",
       },
       nicastro: {
         kind: "Website",
-        desc: "Site for an <em>optometry and vision therapy</em> studio: clear content, <em>accessible</em> design, built for its patients.",
+        desc: "Website for an <em>optometry and vision therapy</em> studio: clear content, <em>accessible</em> design, built for its patients.",
+        status: "In progress",
+      },
+      boarelli: {
+        kind: "Website",
+        desc: "Website for a <em>Swiss</em> company offering <em>solutions for industrial automation</em>.",
         status: "In progress",
       },
     },
@@ -136,13 +141,18 @@ export const ui = {
       },
       diiamoond: {
         kind: "Sito web",
-        desc: "Portfolio per un producer musicale di Dublino: <em>multi-platino</em>, <em>multi-oro</em> e un credito in un <em>film Netflix</em>.",
+        desc: "Portfolio per un producer musicale di <em>Dublino</em>: <em>multi-platino</em>, <em>multi-oro</em> e un credito in un <em>film Netflix</em>.",
         aria: "Visita diiamoond.live",
         cta: "Visita diiamoond.live",
       },
       nicastro: {
         kind: "Sito web",
         desc: "Sito per uno studio di <em>optometria e rieducazione visiva</em>: contenuti chiari, design <em>accessibile</em>, pensato per i suoi pazienti.",
+        status: "In corso",
+      },
+      boarelli: {
+        kind: "Sito web",
+        desc: "Sito per un'azienda <em>svizzera</em> che realizza <em>soluzioni per l'automazione industriale</em>.",
         status: "In corso",
       },
     },

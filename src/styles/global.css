@@ -164,7 +164,7 @@ section{padding-block:clamp(64px,10vw,152px) 0}
 @media(max-width:1100px){.perno{grid-template-columns:auto 1fr}.perno .store,.perno .status{grid-column:1/-1;justify-self:start}}
 @media(max-width:700px){.perno .store,.perno .status{justify-self:stretch;justify-content:center}}
 .perno .mono{white-space:nowrap}
-.perno .dm-logo,.perno .eye{justify-self:center}
+.perno .dm-logo,.perno .eye,.perno .ba-logo{justify-self:center}
 .perno .pdesc{margin-top:10px;max-width:52ch;color:var(--grey);font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.05rem;line-height:1.35}
 .perno .pdesc em{color:var(--accent);font-weight:600}
 .status{display:inline-flex;align-items:center;gap:12px;min-height:56px;padding:0 20px;border:1.5px dashed var(--ink);border-radius:6px;font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);white-space:nowrap}
