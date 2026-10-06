@@ -21,7 +21,6 @@ export const ui = {
     navLabel: "Main",
     nav: { work: "Work", about: "About", contact: "Contact" },
     langLabel: "Language",
-    theme: { toDark: "Switch to dark theme", toLight: "Switch to light theme" },
 
     title: "Federico Fuffa · Web & software",
     description: "Federico Fuffa. Web and software. Computer Science student at the University of Camerino. Selected work: Plinto Labs, Perno and Diiamoond.",
@@ -109,7 +108,6 @@ export const ui = {
     navLabel: "Principale",
     nav: { work: "Progetti", about: "Chi sono", contact: "Contatti" },
     langLabel: "Lingua",
-    theme: { toDark: "Passa al tema scuro", toLight: "Passa al tema chiaro" },
 
     title: "Federico Fuffa · Web e software",
     description: "Federico Fuffa. Web e software. Studente di Informatica all'Università di Camerino. Progetti selezionati: Plinto Labs, Perno e Diiamoond.",

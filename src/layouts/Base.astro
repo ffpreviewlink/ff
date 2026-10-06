@@ -33,7 +33,7 @@ const image = site + "/og.png";
     {!noindex && langs.map((l) => <link rel="alternate" hreflang={l} href={site + alt[l]} />)}
     {!noindex && <link rel="alternate" hreflang="x-default" href={site + alt.en} />}
     <meta name="theme-color" content="#f3f1ec" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="color-scheme" content="light" />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
@@ -60,12 +60,7 @@ const image = site + "/og.png";
 
     <script is:inline>
       (function () {
-        var d = document.documentElement, t;
-        d.classList.add("js");
-        try { t = localStorage.getItem("theme"); } catch (e) {}
-        if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        d.dataset.theme = t;
-        document.querySelector('meta[name="theme-color"]').content = t === "dark" ? "#111110" : "#f3f1ec";
+        document.documentElement.classList.add("js");
       })();
     </script>
     {jsonld.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}

@@ -14,23 +14,6 @@
   --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
   --ease:cubic-bezier(.2,.7,.2,1);
 }
-/* dark theme: data-theme is set by the inline script in <head>; the media query is the no-JS fallback */
-:root[data-theme=dark]{
-  --paper:#111110;--ink:#f3f1ec;--grey:#a09f98;--line:#f3f1ec;--soft:rgba(243,241,236,.16);
-  --card:#1c1c1a;
-  --logo-fx:drop-shadow(0 0 1px rgba(243,241,236,.55)) drop-shadow(0 0 11px rgba(243,241,236,.38));
-  --logo-fx-hi:drop-shadow(0 0 1px rgba(243,241,236,.7)) drop-shadow(0 0 16px rgba(243,241,236,.55));
-  color-scheme:dark;
-}
-@media(prefers-color-scheme:dark){
-  :root:not([data-theme]){
-    --paper:#111110;--ink:#f3f1ec;--grey:#a09f98;--line:#f3f1ec;--soft:rgba(243,241,236,.16);
-    --card:#1c1c1a;
-    --logo-fx:drop-shadow(0 0 1px rgba(243,241,236,.55)) drop-shadow(0 0 11px rgba(243,241,236,.38));
-    --logo-fx-hi:drop-shadow(0 0 1px rgba(243,241,236,.7)) drop-shadow(0 0 16px rgba(243,241,236,.55));
-    color-scheme:dark;
-  }
-}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:72px}
 body{margin:0;background:var(--paper);color:var(--ink);font:500 clamp(16px,.5vw + 14px,19px)/1.5 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -68,16 +51,6 @@ ol,ul{list-style:none}
 .lang a:hover::after,.lang a[aria-current]::after{transform:scaleX(1)}
 .lang .sep{color:var(--accent);font-family:var(--mono);font-size:.74rem}
 
-/* theme toggle */
-.theme-toggle{display:none;appearance:none;background:none;border:0;padding:0;margin:0;color:inherit;cursor:pointer;width:44px;height:44px;place-items:center;position:relative;border-radius:50%}
-.js .theme-toggle{display:inline-grid}
-.theme-toggle svg{grid-area:1/1;width:20px;height:20px;transition:transform .5s var(--ease),opacity .3s,color .2s}
-.theme-toggle:hover svg{color:var(--accent)}
-.theme-toggle .sun{opacity:0;transform:rotate(-90deg) scale(.5)}
-:root[data-theme=dark] .theme-toggle .sun{opacity:1;transform:none}
-:root[data-theme=dark] .theme-toggle .moon{opacity:0;transform:rotate(90deg) scale(.5)}
-.theme-toggle:hover .moon{transform:rotate(-14deg)}
-.theme-toggle:hover .sun{transform:rotate(30deg)}
 @media(max-width:520px){
   .bar{flex-wrap:wrap;column-gap:8px}
   .nav{margin-left:auto;gap:0;align-items:center}
@@ -85,18 +58,12 @@ ol,ul{list-style:none}
   .lang{margin-left:2px}
   .lang a{padding-inline:4px;font-size:.68rem}
   .lang a::after{left:4px;right:4px}
-  .theme-toggle{width:36px}
 }
 @media(max-width:360px){
   .nav>a,.lang a{font-size:.64rem;padding-inline:3px}
   .lang a::after{left:3px;right:3px}
 }
 @media(max-width:520px){.brand span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}}
-
-/* dark: black-on-light marks flip to light-on-dark */
-:root[data-theme=dark] .brand-logo{filter:invert(1);mix-blend-mode:screen}
-:root[data-theme=dark] .dm-logo{filter:invert(1) var(--logo-fx);mix-blend-mode:screen}
-:root[data-theme=dark] .perno:hover .dm-logo{filter:invert(1) var(--logo-fx-hi)}
 
 /* hero */
 .hero{padding-block:clamp(28px,5vw,64px) clamp(28px,4vw,48px)}
@@ -148,7 +115,7 @@ section{padding-block:clamp(64px,10vw,152px) 0}
 
 /* perno: compact project card with a Microsoft Store button */
 .perno{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(16px,3vw,40px);align-items:center;padding:clamp(20px,2.6vw,32px) 0;border-bottom:1px solid var(--line)}
-.perno .pl{width:clamp(56px,6vw,76px);height:auto;filter:var(--logo-fx);transition:filter .4s var(--ease)}
+.perno .pl{width:clamp(56px,6vw,76px);height:auto;filter:var(--logo-fx)}
 .perno:hover .pl{filter:var(--logo-fx-hi)}
 .perno h3{font-size:clamp(1.8rem,3.4vw,3rem);font-weight:800;letter-spacing:-.04em;line-height:1}
 .perno .mono{color:var(--grey);margin-top:8px;display:block}
@@ -270,6 +237,7 @@ section{padding-block:clamp(64px,10vw,152px) 0}
 .legal-links{display:flex;flex-wrap:wrap;gap:0 20px;margin-top:6px}
 .legal-links a,.legal-links button{font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;min-height:44px;display:inline-flex;align-items:center;text-decoration:underline;text-underline-offset:3px}
 .legal-links a:hover,.legal-links button:hover{color:var(--accent)}
+@media(max-width:700px){.legal-links{flex-direction:column;align-items:flex-start;gap:0}}
 
 /* cookie banner */
 .cb{position:fixed;left:0;right:0;bottom:0;z-index:90;background:var(--paper);color:var(--ink);border-top:1px solid var(--line);box-shadow:0 -12px 32px rgba(0,0,0,.12)}

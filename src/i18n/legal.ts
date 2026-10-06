@@ -97,7 +97,7 @@ export const legalDocs: Record<"privacy" | "cookie", Record<Lang, Doc>> = {
         },
         {
           h: "Cookie e strumenti di tracciamento",
-          html: `<p>Il sito usa <strong>strumenti tecnici</strong> (preferenza del tema, cache della versione di Perno, memorizzazione della tua scelta sui cookie) che non richiedono consenso, e <strong>Google Analytics</strong>, che viene attivato solo dopo il tuo consenso. Il dettaglio è nella <a class="ul" href="/it/cookie-policy/">Cookie Policy</a>. Puoi cambiare la scelta in ogni momento da “Impostazioni cookie” nel footer.</p>`,
+          html: `<p>Il sito usa <strong>strumenti tecnici</strong> (cache della versione di Perno, memorizzazione della tua scelta sui cookie) che non richiedono consenso, e <strong>Google Analytics</strong>, che viene attivato solo dopo il tuo consenso. Il dettaglio è nella <a class="ul" href="/it/cookie-policy/">Cookie Policy</a>. Puoi cambiare la scelta in ogni momento da “Impostazioni cookie” nel footer.</p>`,
         },
         {
           h: "Diritti dell'interessato",
@@ -195,7 +195,7 @@ export const legalDocs: Record<"privacy" | "cookie", Record<Lang, Doc>> = {
         },
         {
           h: "Cookies and tracking tools",
-          html: `<p>The site uses <strong>technical tools</strong> (theme preference, Perno version cache, storing your cookie choice) that do not require consent, and <strong>Google Analytics</strong>, which is activated only after you consent. Details are in the <a class="ul" href="/cookie-policy/">Cookie Policy</a>. You can change your choice at any time from “Cookie settings” in the footer.</p>`,
+          html: `<p>The site uses <strong>technical tools</strong> (Perno version cache, storing your cookie choice) that do not require consent, and <strong>Google Analytics</strong>, which is activated only after you consent. Details are in the <a class="ul" href="/cookie-policy/">Cookie Policy</a>. You can change your choice at any time from “Cookie settings” in the footer.</p>`,
         },
         {
           h: "Your rights",
@@ -244,7 +244,6 @@ export const legalDocs: Record<"privacy" | "cookie", Record<Lang, Doc>> = {
 <div class="tbl"><table>
 <thead><tr><th>Nome</th><th>Finalità</th><th>Durata</th><th>Tipo</th></tr></thead>
 <tbody>
-<tr><td data-label="Nome"><code>theme</code> (localStorage)</td><td data-label="Finalità">Ricorda il tema chiaro/scuro scelto con il pulsante apposito. Viene scritto solo quando lo usi</td><td data-label="Durata">Finché non cancelli i dati del sito</td><td data-label="Tipo">Tecnico (preferenza)</td></tr>
 <tr><td data-label="Nome"><code>perno-ver</code> (sessionStorage)</td><td data-label="Finalità">Tiene in cache per un'ora la versione di Perno letta da GitHub, per non ripetere la richiesta</td><td data-label="Durata">Sessione del browser (validità 1 ora)</td><td data-label="Tipo">Tecnico</td></tr>
 <tr><td data-label="Nome"><code>cookie-consent</code> (localStorage)</td><td data-label="Finalità">Ricorda la tua scelta sui cookie</td><td data-label="Durata">180 giorni</td><td data-label="Tipo">Tecnico</td></tr>
 </tbody></table></div>`,
@@ -292,7 +291,6 @@ export const legalDocs: Record<"privacy" | "cookie", Record<Lang, Doc>> = {
 <div class="tbl"><table>
 <thead><tr><th>Name</th><th>Purpose</th><th>Duration</th><th>Type</th></tr></thead>
 <tbody>
-<tr><td data-label="Name"><code>theme</code> (localStorage)</td><td data-label="Purpose">Remembers the light/dark theme chosen with the toggle. Written only when you use it</td><td data-label="Duration">Until you clear site data</td><td data-label="Type">Technical (preference)</td></tr>
 <tr><td data-label="Name"><code>perno-ver</code> (sessionStorage)</td><td data-label="Purpose">Caches for one hour the Perno version read from GitHub, to avoid repeating the request</td><td data-label="Duration">Browser session (valid 1 hour)</td><td data-label="Type">Technical</td></tr>
 <tr><td data-label="Name"><code>cookie-consent</code> (localStorage)</td><td data-label="Purpose">Remembers your cookie choice</td><td data-label="Duration">180 days</td><td data-label="Type">Technical</td></tr>
 </tbody></table></div>`,
