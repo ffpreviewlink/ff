@@ -64,7 +64,8 @@ export const ui = {
       boarelli: {
         kind: "Website",
         desc: "Website for a <em>Swiss</em> company offering <em>solutions for industrial automation</em>.",
-        status: "In progress",
+        aria: "Visit boarelliautomazioni.ch",
+        cta: "Visit boarelliautomazioni.ch",
       },
     },
 
@@ -151,7 +152,8 @@ export const ui = {
       boarelli: {
         kind: "Sito web",
         desc: "Sito per un'azienda <em>svizzera</em> che realizza <em>soluzioni per l'automazione industriale</em>.",
-        status: "In corso",
+        aria: "Visita boarelliautomazioni.ch",
+        cta: "Visita boarelliautomazioni.ch",
       },
     },
 
