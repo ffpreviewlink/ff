@@ -70,6 +70,7 @@ ol,ul{list-style:none}
 .hero h1{font-weight:800;font-size:min(19.4vw,17.5rem);line-height:.8;letter-spacing:-.045em;text-transform:uppercase;text-align:center}
 .hero h1 .ln>span{font-size:.72em}
 .plinto h2 span{font-size:.72em}
+.plinto h2 .gl{font-size:1em;margin-right:.03em}
 .hero h1 .ln>span b,.plinto h2 b{font-size:calc(1em/.72);font-weight:800}
 .hero h1 .ln{display:block;overflow:hidden;padding-block:.06em .02em}
 .hero h1 .ln>span{display:block;transform:translateY(105%);animation:up 1s var(--ease) forwards}
