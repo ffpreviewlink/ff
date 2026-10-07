@@ -8,7 +8,7 @@ const t = ui[lang];
 
 let version = "";
 try {
-  const r = await fetch("https://api.github.com/repos/fuffafederico/perno-releases/releases/latest", {
+  const r = await fetch("https://api.github.com/repos/ffpreviewlink/perno-releases/releases/latest", {
     signal: AbortSignal.timeout(5000),
     headers: { "User-Agent": "federicofuffa.it-build" },
   });
@@ -86,9 +86,10 @@ const jsonld = [
       <div class="frame"><h2 class="label" id="w-h">{t.projects.label}</h2>
         <div>
           <article class="perno rv">
-            <img class="pl" src="/perno-logo.webp" width="240" height="231" alt="" loading="lazy" decoding="async" />
+            <img class="pl" src="/perno-logo.webp" width="240" height="231" alt={t.projects.perno.alt} loading="lazy" decoding="async" />
             <div><h3>Perno</h3><span class="mono">{t.projects.perno.kind}</span>
               <p class="pdesc" set:html={t.projects.perno.desc} />
+              <a class="plink ul" href="https://ffpreviewlink.github.io/perno-releases/" target="_blank" rel="noopener">{t.projects.perno.more} ↗</a>
             </div>
             <a class="store" href="https://apps.microsoft.com/detail/9n5t86tbmzns" target="_blank" rel="noopener" aria-label={t.projects.perno.aria}>
               <span class="ms" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
@@ -96,11 +97,12 @@ const jsonld = [
             </a>
           </article>
           <article class="perno rv" style="--d:1">
-            <img class="pl dm-logo" src="/diiamoond-logo.png" width="48" height="48" alt="" loading="lazy" decoding="async" />
+            <img class="pl dm-logo" src="/diiamoond-logo.png" width="48" height="48" alt={t.projects.diiamoond.alt} loading="lazy" decoding="async" />
             <div>
               <h3>Diiamoond</h3>
               <span class="mono">{t.projects.diiamoond.kind}</span>
               <p class="pdesc" set:html={t.projects.diiamoond.desc} />
+              <p class="proof" aria-label={t.projects.lighthouse.aria}><span aria-hidden="true">{t.projects.lighthouse.label} <b>100</b> / <b>100</b> / <b>100</b> / <b>100</b></span></p>
             </div>
             <a class="store visit" href="https://diiamoond.live/" target="_blank" rel="noopener" aria-label={t.projects.diiamoond.aria}>
               <span>{t.projects.diiamoond.cta}</span>
@@ -108,11 +110,12 @@ const jsonld = [
             </a>
           </article>
           <article class="perno rv" style="--d:2">
-            <img class="pl ba-logo" src="/ba-logo.png" width="436" height="242" alt="" loading="lazy" decoding="async" />
+            <img class="pl ba-logo" src="/ba-logo.png" width="436" height="242" alt={t.projects.boarelli.alt} loading="lazy" decoding="async" />
             <div>
               <h3>Boarelli Automazioni</h3>
               <span class="mono">{t.projects.boarelli.kind}</span>
               <p class="pdesc" set:html={t.projects.boarelli.desc} />
+              <p class="proof" aria-label={t.projects.lighthouse.aria}><span aria-hidden="true">{t.projects.lighthouse.label} <b>100</b> / <b>100</b> / <b>100</b> / <b>100</b></span></p>
             </div>
             <a class="store visit" href="https://boarelliautomazioni.ch/" target="_blank" rel="noopener" aria-label={t.projects.boarelli.aria}>
               <span>{t.projects.boarelli.cta}</span>
@@ -137,8 +140,14 @@ const jsonld = [
     <div class="wrap">
       <div class="frame"><h2 class="label" id="a-h">{t.about.label}</h2>
         <div>
-          <p class="big rv">{t.about.text}</p>
-          <p class="about-meta mono rv" style="--d:1">{t.country}</p>
+          <p class="big rv" set:html={t.about.text} />
+          <p class="about-more rv" style="--d:1" set:html={t.about.more} />
+          <div class="skillset rv" style="--d:2" role="group" aria-label={t.about.skills.label}>
+            {t.about.skills.groups.map((g) => (
+              <div><h3>{g.t}</h3><ul>{g.l.map((x) => <li class={g.hi ? "hi" : undefined}>{x}</li>)}</ul></div>
+            ))}
+          </div>
+          <p class="about-meta mono rv" style="--d:3">{t.country}</p>
         </div>
       </div>
     </div>
@@ -148,8 +157,8 @@ const jsonld = [
     <div class="wrap">
       <div class="frame"><h2 class="label" id="s-h">{t.skills.label}</h2>
         <div class="skills">
-          {t.skills.groups.map((s, i) => (
-            <div class="rv" style={`--d:${i}`}><h3>{s.t}</h3><ul>{s.l.map(([x, hi]) => <li class={hi === 1 ? "hi" : hi === 2 ? "dot" : undefined}>{x}</li>)}</ul></div>
+          {t.skills.items.map((s, i) => (
+            <div class="rv" style={`--d:${i}`}><h3>{s.t}</h3><p>{s.d}</p><ul class="tags">{s.tags.map((x) => <li>{x}</li>)}</ul></div>
           ))}
         </div>
       </div>
@@ -162,9 +171,9 @@ const jsonld = [
         <div>
           <a class="mail ul rv" href="mailto:info@federicofuffa.it">info@federicofuffa.it</a>
           <div class="contact-links rv" style="--d:1">
-            <a class="store cv" href="/Federico_Fuffa_CV.pdf" download="Federico_Fuffa_CV.pdf" aria-label={t.contact.cvAria}>
+            <a class="store cv" href={t.contact.cv.href} download={t.contact.cv.href.slice(1)} aria-label={t.contact.cv.aria}>
               <svg class="dl" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path class="dl-arrow" d="M12 3v12m-5-5 5 5 5-5"/><path d="M4 20h16"/></svg>
-              <span>{t.contact.cv}<small>{t.contact.cvMeta}</small></span>
+              <span>{t.contact.cv.label}<small>{t.contact.cv.meta}</small></span>
             </a>
             <a class="ul" href="https://www.linkedin.com/in/federico-fuffa-741a19331/" target="_blank" rel="noopener">LinkedIn ↗</a>
           </div>
