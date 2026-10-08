@@ -37,7 +37,7 @@ export const ui = {
     plinto: {
       aria: "Plinto Labs, digital studio. Visit plintolabs.it",
       kicker: "Digital studio",
-      role: "Occasional self-employed worker at:",
+      role: "Digital consultant for:",
       line: "Websites, software and systems for businesses and professionals.",
       go: "Visit Plinto Labs",
     },
@@ -104,7 +104,7 @@ export const ui = {
       cv: { href: "/Federico_Fuffa_CV_EN.pdf", label: "Download CV", meta: "PDF · EN", aria: "Download my CV, PDF in English" },
     },
 
-    footer: { copy: "© 2026 Federico Fuffa.", rights: "All rights reserved.", role: "Occasional self-employed worker at:", top: "Back to top ↑", privacy: "Privacy Policy", cookies: "Cookie Policy", settings: "Cookie settings" },
+    footer: { copy: "© 2026 Federico Fuffa.", rights: "All rights reserved.", role: "Digital consultant for:", top: "Back to top ↑", privacy: "Privacy Policy", cookies: "Cookie Policy", settings: "Cookie settings" },
     cookie: {
       label: "Cookie notice",
       title: "Cookies",
@@ -137,7 +137,7 @@ export const ui = {
     plinto: {
       aria: "Plinto Labs, studio digitale. Visita plintolabs.it",
       kicker: "Studio digitale",
-      role: "Lavoratore autonomo occasionale presso:",
+      role: "Consulente digitale per:",
       line: "Siti web, software e sistemi per aziende e professionisti.",
       go: "Visita Plinto Labs",
     },
@@ -204,7 +204,7 @@ export const ui = {
       cv: { href: "/Federico_Fuffa_CV_IT.pdf", label: "Scarica CV", meta: "PDF · IT", aria: "Scarica il mio CV, PDF in italiano" },
     },
 
-    footer: { copy: "© 2026 Federico Fuffa.", rights: "Tutti i diritti riservati.", role: "Lavoratore autonomo occasionale presso:", top: "Torna su ↑", privacy: "Privacy Policy", cookies: "Cookie Policy", settings: "Impostazioni cookie" },
+    footer: { copy: "© 2026 Federico Fuffa.", rights: "Tutti i diritti riservati.", role: "Consulente digitale per:", top: "Torna su ↑", privacy: "Privacy Policy", cookies: "Cookie Policy", settings: "Impostazioni cookie" },
     cookie: {
       label: "Informativa cookie",
       title: "Cookie",

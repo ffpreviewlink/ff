@@ -28,7 +28,7 @@ export const legalDocs: Record<"privacy" | "cookie", Record<Lang, Doc>> = {
         {
           h: "Titolare del trattamento",
           html: `<p>Il titolare del trattamento è <strong>Federico Fuffa</strong>, persona fisica, titolare del sito federicofuffa.it. Contatto: ${mail}.</p>
-<p>Nel footer e nella home del sito compare il riferimento a <a class="ul" href="https://www.plintolabs.it/" target="_blank" rel="noopener">Plinto Labs</a>, studio con cui il titolare collabora come lavoratore autonomo occasionale. Plinto Labs non è titolare né contitolare dei trattamenti descritti in questa pagina e non riceve dati attraverso il sito: il collegamento è un semplice link esterno.</p>`,
+<p>Nel footer e nella home del sito compare il riferimento a <a class="ul" href="https://www.plintolabs.it/" target="_blank" rel="noopener">Plinto Labs</a>, studio con cui il titolare collabora come consulente digitale. Plinto Labs non è titolare né contitolare dei trattamenti descritti in questa pagina e non riceve dati attraverso il sito: il collegamento è un semplice link esterno.</p>`,
         },
         {
           h: "Tipologie di dati trattati",
@@ -126,7 +126,7 @@ export const legalDocs: Record<"privacy" | "cookie", Record<Lang, Doc>> = {
         {
           h: "Data controller",
           html: `<p>The data controller is <strong>Federico Fuffa</strong>, an individual and the owner of federicofuffa.it. Contact: ${mail}.</p>
-<p>The footer and the home page mention <a class="ul" href="https://www.plintolabs.it/" target="_blank" rel="noopener">Plinto Labs</a>, a studio with which the controller collaborates as an occasional self-employed worker. Plinto Labs is neither controller nor joint controller of the processing described here and receives no data through this site: the mention is a plain external link.</p>`,
+<p>The footer and the home page mention <a class="ul" href="https://www.plintolabs.it/" target="_blank" rel="noopener">Plinto Labs</a>, a studio with which the controller collaborates as a digital consultant. Plinto Labs is neither controller nor joint controller of the processing described here and receives no data through this site: the mention is a plain external link.</p>`,
         },
         {
           h: "Types of data processed",
