@@ -19,7 +19,7 @@ export const ui = {
     skip: "Skip to content",
     brandLabel: "Federico Fuffa, home",
     navLabel: "Main",
-    nav: { work: "Work", about: "About", contact: "Contact" },
+    nav: { work: "Work", reviews: "Reviews", about: "About", contact: "Contact" },
     langLabel: "Language",
 
     title: "Federico Fuffa · Web developer in Matelica, Marche",
@@ -74,6 +74,20 @@ export const ui = {
       },
     },
 
+    reviews: {
+      label: "Reviews",
+      source: "on Trustpilot",
+      one: "1 review",
+      many: "{n} reviews",
+      avgAria: "Average rating {avg} out of 5, from {n} reviews",
+      starsAria: "{n} out of 5 stars",
+      listAria: "Client reviews",
+      read: "Read on Trustpilot",
+      all: "See all reviews on Trustpilot",
+      leave: "Leave a review",
+      project: "Project",
+    },
+
     about: {
       label: "About",
       text: "I'm a Computer Science student at the University of Camerino. I <em>build</em> websites and software.",
@@ -119,7 +133,7 @@ export const ui = {
     skip: "Vai al contenuto",
     brandLabel: "Federico Fuffa, home",
     navLabel: "Principale",
-    nav: { work: "Progetti", about: "Chi sono", contact: "Contatti" },
+    nav: { work: "Progetti", reviews: "Recensioni", about: "Chi sono", contact: "Contatti" },
     langLabel: "Lingua",
 
     title: "Federico Fuffa · Sviluppatore web a Matelica, Marche",
@@ -172,6 +186,20 @@ export const ui = {
         aria: "Visita boarelliautomazioni.ch",
         cta: "Visita boarelliautomazioni.ch",
       },
+    },
+
+    reviews: {
+      label: "Recensioni",
+      source: "su Trustpilot",
+      one: "1 recensione",
+      many: "{n} recensioni",
+      avgAria: "Valutazione media {avg} su 5, da {n} recensioni",
+      starsAria: "{n} stelle su 5",
+      listAria: "Recensioni dei clienti",
+      read: "Leggi su Trustpilot",
+      all: "Vedi tutte le recensioni su Trustpilot",
+      leave: "Lascia una recensione",
+      project: "Progetto",
     },
 
     about: {
