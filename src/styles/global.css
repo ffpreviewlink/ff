@@ -168,13 +168,36 @@ section{padding-block:clamp(64px,10vw,152px) 0}
 .r-card blockquote{margin:0}
 .r-card blockquote p{font-family:var(--serif);font-weight:400;font-size:1.08rem;line-height:1.5}
 .r-card footer{margin-top:auto;padding-top:14px;border-top:1px solid var(--soft);display:grid;gap:4px}
-.r-who b{font-weight:700}
-.r-who span,.r-meta{color:var(--grey)}
+.r-who{display:grid;gap:2px}
+.r-who b{font-size:1.25rem;font-weight:800;letter-spacing:-.025em;line-height:1.15}
+.r-who i{font-family:var(--serif);font-size:1rem;font-weight:400;color:var(--grey)}
+.r-meta{color:var(--grey)}
 .r-meta{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase}
 .r-read{justify-self:start;margin-top:6px;font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;min-height:44px;display:inline-flex;align-items:center;gap:.5em}
 .r-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px;margin-top:clamp(24px,3vw,40px)}
 .r-leave{font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;min-height:44px;display:inline-flex;align-items:center;gap:.5em}
 @media(max-width:700px){.r-actions .store{flex:1 1 100%;justify-content:center}}
+
+/* perno: what I handle for the app (releases, store) */
+.pn-top{display:flex;align-items:center;gap:clamp(16px,3vw,40px)}
+.pn-logo{width:clamp(72px,11vw,160px);height:auto;flex:none;filter:var(--logo-fx)}
+.pn h3{font-size:clamp(3.4rem,12vw,9.5rem);font-weight:800;line-height:.82;letter-spacing:-.05em;text-transform:uppercase}
+.pn h3 b{color:var(--accent);font-weight:800}
+.pn-kind{display:block;margin-top:clamp(12px,1.6vw,22px);font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,1.5vw,1.3rem);color:var(--grey)}
+.pn-body{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px clamp(24px,4vw,64px);align-items:end;margin-top:clamp(28px,4vw,56px);padding-bottom:clamp(28px,4vw,56px);border-bottom:1px solid var(--line)}
+.pn-desc{max-width:32ch;font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.3rem,2.3vw,2.1rem);line-height:1.25;text-wrap:balance}
+.pn-desc em{font-style:italic;font-weight:600;color:var(--accent)}
+.pn-cta{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.pn-cta .plink{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;min-height:44px;display:inline-flex;align-items:center}
+.pn-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px var(--gut);margin-top:clamp(28px,4vw,56px)}
+.pn-col .n{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;color:var(--accent)}
+.pn-col h4{margin:8px 0 16px;padding-top:12px;border-top:1.5px solid var(--ink);font-size:clamp(1.2rem,1.8vw,1.6rem);font-weight:700;letter-spacing:-.03em;line-height:1.15}
+.pn-col ul{display:grid;gap:10px}
+.pn-col li{position:relative;padding-left:1.2em;font-size:.98rem;line-height:1.4;color:var(--grey)}
+.pn-col li::before{content:"";position:absolute;left:0;top:.5em;width:.4em;height:.4em;border-radius:50%;background:var(--accent)}
+@media(max-width:1100px){.pn-cols{grid-template-columns:1fr}}
+@media(max-width:820px){.pn-body{grid-template-columns:1fr}}
+@media(max-width:700px){.pn-cta .store{align-self:stretch;justify-content:center}}
 
 /* about */
 .big{font-size:clamp(1.9rem,4.6vw,4.4rem);font-weight:600;line-height:1.06;letter-spacing:-.035em;max-width:20ch}

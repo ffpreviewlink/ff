@@ -16,7 +16,7 @@ The schema is in [`src/content.config.ts`](../../content.config.ts); the build f
    | `text` | yes | Review text, copied exactly. Never edit, fix or translate it |
    | `date` | yes | Publication date, `YYYY-MM-DD` |
    | `url` | yes | Link to the review itself (open it from your Trustpilot profile), must be on `trustpilot.com` |
-   | `project` | no | Project or client the review is about |
+   | `project` | no | Business or project name. If set, it is shown as the main name with the author under it in small grey italics |
    | `lang` | no | `it` (default) or `en`: the language the review was written in |
 
 3. `npm run build` to check it, then commit and push.

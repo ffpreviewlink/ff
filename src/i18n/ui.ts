@@ -23,7 +23,7 @@ export const ui = {
     langLabel: "Language",
 
     title: "Federico Fuffa · Web developer in Matelica, Marche",
-    description: "Federico Fuffa, web developer in Matelica, Marche. Fast, accessible websites and software for small businesses and professionals. Selected work: Plinto Labs, Perno and Diiamoond.",
+    description: "Federico Fuffa, web developer in Matelica, Marche. Fast, accessible websites and software for small businesses and professionals. Selected work: Plinto Labs and Diiamoond.",
     ogAlt: "Federico Fuffa, web and software",
     jobTitle: "Web and software developer",
     personDescription: "Computer Science student at the University of Camerino. Web and software.",
@@ -46,12 +46,18 @@ export const ui = {
       label: "Projects",
       lighthouse: { label: "Lighthouse", aria: "Lighthouse scores: performance 100, accessibility 100, best practices 100, SEO 100" },
       perno: {
-        kind: "Windows app",
-        desc: "A <em>modular personal hub</em>: a digital home whose rooms you install and remove <em>as you like</em>.",
+        label: "Release",
+        kind: "Release management and distribution",
+        desc: "For <em>Perno</em>, a modular personal hub for Windows, I look after the <em>website</em>, <em>releases</em> and <em>Microsoft Store publishing</em>.",
         alt: "Perno logo",
         aria: "Get Perno from the Microsoft Store",
         cta: "Get it from the Microsoft Store",
         more: "Learn more about Perno",
+        groups: [
+          { t: "Website", l: ["Maintaining the official site and the information on features and versions", "Links to GitHub Releases and the Microsoft Store", "Real screenshots of the interface, never illustrative images", "Consistency between site, documentation and the versions actually distributed"] },
+          { t: "GitHub releases", l: ["Version bumps and metadata checks", "Checks and build before publishing", "Distribution artifacts, including those for the automatic updater", "GitHub Releases with downloadable files and release notes", "Checking that published packages match the declared version"] },
+          { t: "Partner Center and Store", l: ["Packages for Microsoft Store distribution", "Submissions, updates and version information", "Technical requirements and certification issues", "Submission status and publication of updates", "Keeping GitHub and Store versions aligned, so users from different channels get the right package"] },
+        ] as { t: string; l: string[] }[],
       },
       diiamoond: {
         kind: "Website",
@@ -137,7 +143,7 @@ export const ui = {
     langLabel: "Lingua",
 
     title: "Federico Fuffa · Sviluppatore web a Matelica, Marche",
-    description: "Federico Fuffa, sviluppatore web a Matelica, nelle Marche. Siti veloci e accessibili e software per piccole attività e professionisti. Progetti selezionati: Plinto Labs, Perno e Diiamoond.",
+    description: "Federico Fuffa, sviluppatore web a Matelica, nelle Marche. Siti veloci e accessibili e software per piccole attività e professionisti. Progetti selezionati: Plinto Labs e Diiamoond.",
     ogAlt: "Federico Fuffa, web e software",
     jobTitle: "Sviluppatore web e software",
     personDescription: "Studente di Informatica all'Università di Camerino. Web e software.",
@@ -160,12 +166,18 @@ export const ui = {
       label: "Progetti",
       lighthouse: { label: "Lighthouse", aria: "Punteggi Lighthouse: prestazioni 100, accessibilità 100, buone pratiche 100, SEO 100" },
       perno: {
-        kind: "App per Windows",
-        desc: "Un <em>hub personale modulare</em>: una casa digitale di cui installi e rimuovi le stanze <em>come vuoi</em>.",
+        label: "Release",
+        kind: "Gestione release e distribuzione",
+        desc: "<em>Perno</em>, hub personale modulare per Windows, curo <em>sito</em>, <em>release</em> e <em>pubblicazione sul Microsoft Store</em>.",
         alt: "Logo di Perno",
         aria: "Scarica Perno dal Microsoft Store",
         cta: "Scaricala dal Microsoft Store",
         more: "Scopri di più su Perno",
+        groups: [
+          { t: "Sito", l: ["Manutenzione del sito ufficiale e delle informazioni su funzioni e versioni", "Collegamenti a GitHub Releases e Microsoft Store", "Screenshot reali dell'interfaccia, mai immagini illustrative", "Coerenza tra sito, documentazione e versioni effettivamente distribuite"] },
+          { t: "Release su GitHub", l: ["Aggiornamento della versione e verifica dei metadati", "Controlli e build prima della pubblicazione", "Artefatti di distribuzione, anche per l'aggiornamento automatico", "GitHub Releases con file scaricabili e note di rilascio", "Verifica che i pacchetti pubblicati corrispondano alla versione dichiarata"] },
+          { t: "Partner Center e Store", l: ["Pacchetti per la distribuzione sul Microsoft Store", "Submission, aggiornamenti e informazioni sulle versioni", "Requisiti tecnici e problemi di certificazione", "Stato delle submission e pubblicazione degli aggiornamenti", "Allineamento tra versioni GitHub e Store, perché chi arriva da canali diversi riceva il pacchetto giusto"] },
+        ] as { t: string; l: string[] }[],
       },
       diiamoond: {
         kind: "Sito web",

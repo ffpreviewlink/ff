@@ -46,7 +46,6 @@ const jsonld = [
     operatingSystem: "Windows",
     applicationCategory: "UtilitiesApplication",
     url: "https://apps.microsoft.com/detail/9n5t86tbmzns",
-    author: { "@id": site + "/#federico" },
     ...(version ? { softwareVersion: version } : {}),
   },
 ];
@@ -87,17 +86,6 @@ const jsonld = [
       <div class="frame"><h2 class="label" id="w-h">{t.projects.label}</h2>
         <div>
           <article class="perno rv">
-            <img class="pl" src="/perno-logo.webp" width="240" height="231" alt={t.projects.perno.alt} loading="lazy" decoding="async" />
-            <div><h3>Perno</h3><span class="mono">{t.projects.perno.kind}</span>
-              <p class="pdesc" set:html={t.projects.perno.desc} />
-              <a class="plink ul" href="https://ffpreviewlink.github.io/perno-releases/" target="_blank" rel="noopener">{t.projects.perno.more} ↗</a>
-            </div>
-            <a class="store" href="https://apps.microsoft.com/detail/9n5t86tbmzns" target="_blank" rel="noopener" aria-label={t.projects.perno.aria}>
-              <span class="ms" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-              <span>{t.projects.perno.cta}<small data-perno-version>{version && "v" + version}</small></span>
-            </a>
-          </article>
-          <article class="perno rv" style="--d:1">
             <img class="pl dm-logo" src="/diiamoond-logo.png" width="48" height="48" alt={t.projects.diiamoond.alt} loading="lazy" decoding="async" />
             <div>
               <h3>Diiamoond</h3>
@@ -110,7 +98,7 @@ const jsonld = [
               <span class="arr" aria-hidden="true">↗</span>
             </a>
           </article>
-          <article class="perno rv" style="--d:2">
+          <article class="perno rv" style="--d:1">
             <img class="pl ba-logo" src="/ba-logo.png" width="436" height="242" alt={t.projects.boarelli.alt} loading="lazy" decoding="async" />
             <div>
               <h3>Boarelli Automazioni</h3>
@@ -123,7 +111,7 @@ const jsonld = [
               <span class="arr" aria-hidden="true">↗</span>
             </a>
           </article>
-          <article class="perno rv" style="--d:3">
+          <article class="perno rv" style="--d:2">
             <svg class="pl eye" viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 12S5.3 5 12 5s10.5 7 10.5 7-3.8 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3.6"/><circle cx="12" cy="12" r="1" fill="var(--accent)" stroke="none"/></svg>
             <div>
               <h3>Studio Optometrico Nicastro</h3>
@@ -132,6 +120,18 @@ const jsonld = [
             </div>
             <span class="status"><i aria-hidden="true"></i>{t.projects.nicastro.status}</span>
           </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" aria-labelledby="s-h">
+    <div class="wrap">
+      <div class="frame"><h2 class="label" id="s-h">{t.skills.label}</h2>
+        <div class="skills">
+          {t.skills.items.map((s, i) => (
+            <div class="rv" style={`--d:${i}`}><h3>{s.t}</h3><p>{s.d}</p><ul class="tags">{s.tags.map((x) => <li>{x}</li>)}</ul></div>
+          ))}
         </div>
       </div>
     </div>
@@ -156,14 +156,37 @@ const jsonld = [
     </div>
   </section>
 
-  <section id="skills" aria-labelledby="s-h">
+  <section id="perno" aria-labelledby="p-h">
     <div class="wrap">
-      <div class="frame"><h2 class="label" id="s-h">{t.skills.label}</h2>
-        <div class="skills">
-          {t.skills.items.map((s, i) => (
-            <div class="rv" style={`--d:${i}`}><h3>{s.t}</h3><p>{s.d}</p><ul class="tags">{s.tags.map((x) => <li>{x}</li>)}</ul></div>
-          ))}
-        </div>
+      <div class="frame"><h2 class="label" id="p-h">{t.projects.perno.label}</h2>
+        <article class="pn">
+          <div class="pn-top rv">
+            <img class="pn-logo" src="/perno-logo.webp" width="240" height="231" alt={t.projects.perno.alt} loading="lazy" decoding="async" />
+            <div>
+              <h3><b>P</b>erno</h3>
+              <span class="pn-kind">{t.projects.perno.kind}</span>
+            </div>
+          </div>
+          <div class="pn-body rv" style="--d:1">
+            <p class="pn-desc" set:html={t.projects.perno.desc} />
+            <div class="pn-cta">
+              <a class="store" href="https://apps.microsoft.com/detail/9n5t86tbmzns" target="_blank" rel="noopener" aria-label={t.projects.perno.aria}>
+                <span class="ms" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                <span>{t.projects.perno.cta}<small data-perno-version>{version && "v" + version}</small></span>
+              </a>
+              <a class="plink ul" href="https://ffpreviewlink.github.io/perno-releases/" target="_blank" rel="noopener">{t.projects.perno.more} ↗</a>
+            </div>
+          </div>
+          <div class="pn-cols">
+            {t.projects.perno.groups.map((g, i) => (
+              <div class="pn-col rv" style={`--d:${i + 2}`}>
+                <span class="n" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                <h4>{g.t}</h4>
+                <ul>{g.l.map((x) => <li>{x}</li>)}</ul>
+              </div>
+            ))}
+          </div>
+        </article>
       </div>
     </div>
   </section>
