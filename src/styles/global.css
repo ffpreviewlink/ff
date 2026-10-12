@@ -51,18 +51,39 @@ ol,ul{list-style:none}
 .lang a:hover::after,.lang a[aria-current]::after{transform:scaleX(1)}
 .lang .sep{color:var(--accent);font-family:var(--mono);font-size:.74rem}
 
-@media(max-width:520px){
-  .bar{flex-wrap:wrap;column-gap:8px}
-  .nav{margin-left:auto;gap:0;align-items:center}
-  .nav>a{padding-inline:5px;font-size:.68rem}
-  .nav>.nav-rv{display:none}
-  .lang{margin-left:2px}
-  .lang a{padding-inline:4px;font-size:.68rem}
-  .lang a::after{left:4px;right:4px}
-}
-@media(max-width:360px){
-  .nav>a,.lang a{font-size:.64rem;padding-inline:3px}
-  .lang a::after{left:3px;right:3px}
+.burger{display:none;align-items:center;gap:12px;height:44px;margin-right:-4px;padding:0 4px;background:none;border:0;color:inherit;cursor:pointer;font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase}
+.bg-word{display:block;height:1.2em;line-height:1.2;overflow:hidden}
+.bg-word>span{display:block;transition:transform .5s var(--ease)}
+.open .bg-word>span{transform:translateY(-100%)}
+.bg-ico{position:relative;width:30px;height:16px;display:block}
+.bg-ico i{position:absolute;right:0;height:2px;background:currentColor;transition:transform .5s var(--ease),width .35s var(--ease),top .35s var(--ease),background .2s}
+.bg-ico i:first-child{top:2px;width:100%}
+.bg-ico i:last-child{top:12px;width:55%;background:var(--accent)}
+.burger:hover .bg-ico i:first-child,.burger:focus-visible .bg-ico i:first-child{width:55%}
+.burger:hover .bg-ico i:last-child,.burger:focus-visible .bg-ico i:last-child{width:100%}
+.open .bg-ico i:first-child,.open .burger:hover .bg-ico i:first-child{top:7px;width:100%;transform:rotate(45deg)}
+.open .bg-ico i:last-child,.open .burger:hover .bg-ico i:last-child{top:7px;width:100%;transform:rotate(-45deg)}
+@media(max-width:720px){
+  .burger{display:inline-flex}
+  .menu-open{overflow:hidden}
+  .nav{counter-reset:n;position:fixed;top:57px;left:0;right:0;bottom:0;margin:0;gap:0;flex-direction:column;align-items:stretch;justify-content:flex-start;padding:clamp(8px,3vh,32px) var(--gut) max(24px,env(safe-area-inset-bottom));overflow-y:auto;background:var(--ink);color:var(--paper);visibility:hidden;clip-path:circle(0 at calc(100% - 52px) 0);transition:clip-path .7s var(--ease),visibility 0s .7s}
+  .open .nav{visibility:visible;clip-path:circle(150vmax at calc(100% - 52px) 0);transition:clip-path .8s var(--ease),visibility 0s}
+  .nav>a{counter-increment:n;gap:16px;font-family:var(--sans);font-weight:800;font-size:clamp(2.4rem,13vw,4.6rem);line-height:1;letter-spacing:-.045em;min-height:0;padding:clamp(10px,2.4vh,20px) 0;border-bottom:1px solid rgba(243,241,236,.18);opacity:0;transform:translateY(40px) skewY(3deg);transform-origin:0 100%;transition:opacity .4s,transform .6s var(--ease),color .2s,padding .35s var(--ease)}
+  .open .nav>a{opacity:1;transform:none}
+  .open .nav>a:nth-child(1){transition-delay:.12s}
+  .open .nav>a:nth-child(2){transition-delay:.17s}
+  .open .nav>a:nth-child(3){transition-delay:.22s}
+  .open .nav>a:nth-child(4){transition-delay:.27s}
+  .open .nav>a:nth-child(5){transition-delay:.32s}
+  .nav>a::before{content:counter(n,decimal-leading-zero);font-family:var(--mono);font-weight:400;font-size:.72rem;letter-spacing:.08em;color:var(--accent);align-self:flex-start;margin-top:.5em}
+  .nav>a::after{content:"→";position:static;height:auto;background:none;transform:translateX(-12px);opacity:0;margin-left:auto;font-weight:400;color:var(--accent);transition:transform .35s var(--ease),opacity .25s}
+  .nav>a:hover,.nav>a:focus-visible{color:var(--accent);padding-left:10px}
+  .nav>a:hover::after,.nav>a:focus-visible::after{transform:none;opacity:1}
+  .nav .lang{margin:auto 0 0;padding-top:28px}
+  .nav .lang a{color:rgba(243,241,236,.55);font-size:.85rem;padding-inline:0;margin-right:18px}
+  .nav .lang a:hover,.nav .lang a[aria-current]{color:var(--paper)}
+  .nav .lang a::after{left:0;right:0;bottom:10px;background:var(--accent)}
+  .nav .lang .sep{display:none}
 }
 @media(max-width:520px){.brand span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}}
 

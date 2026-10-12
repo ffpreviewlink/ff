@@ -19,7 +19,9 @@ export const ui = {
     skip: "Skip to content",
     brandLabel: "Federico Fuffa, home",
     navLabel: "Main",
-    nav: { work: "Work", reviews: "Reviews", about: "About", contact: "Contact" },
+    nav: { work: "Work", perno: "Perno", reviews: "Reviews", about: "About", contact: "Contact" },
+    menu: "Menu",
+    menuClose: "Close",
     langLabel: "Language",
 
     title: "Federico Fuffa · Web developer in Matelica, Marche",
@@ -139,7 +141,9 @@ export const ui = {
     skip: "Vai al contenuto",
     brandLabel: "Federico Fuffa, home",
     navLabel: "Principale",
-    nav: { work: "Progetti", reviews: "Recensioni", about: "Chi sono", contact: "Contatti" },
+    nav: { work: "Progetti", perno: "Perno", reviews: "Recensioni", about: "Chi sono", contact: "Contatti" },
+    menu: "Menu",
+    menuClose: "Chiudi",
     langLabel: "Lingua",
 
     title: "Federico Fuffa · Sviluppatore web a Matelica, Marche",

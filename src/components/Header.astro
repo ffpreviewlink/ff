@@ -8,9 +8,14 @@ const names: Record<Lang, string> = { en: "English", it: "Italiano" };
 <header class="site-header">
   <div class="wrap bar">
     <a class="brand" href={base} aria-label={t.brandLabel}><img class="brand-logo" src="/logo.webp" width="32" height="32" alt="" decoding="async" /><span>Federico Fuffa</span></a>
-    <nav class="nav" aria-label={t.navLabel}>
+    <button class="burger" type="button" aria-label={t.menu} aria-expanded="false" aria-controls="site-nav">
+      <span class="bg-word" aria-hidden="true"><span>{t.menu}</span><span>{t.menuClose}</span></span>
+      <span class="bg-ico" aria-hidden="true"><i></i><i></i></span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label={t.navLabel}>
       <a href={base + "#work"}>{t.nav.work}</a>
-      <a class="nav-rv" href={base + "#reviews"}>{t.nav.reviews}</a>
+      <a href={base + "#perno"}>{t.nav.perno}</a>
+      <a href={base + "#reviews"}>{t.nav.reviews}</a>
       <a href={base + "#about"}>{t.nav.about}</a>
       <a href={base + "#contact"}>{t.nav.contact}</a>
       <div class="lang" role="group" aria-label={t.langLabel}>
@@ -26,3 +31,18 @@ const names: Record<Lang, string> = { en: "English", it: "Italiano" };
     </nav>
   </div>
 </header>
+<script>
+  const header = document.querySelector<HTMLElement>(".site-header");
+  const btn = header?.querySelector<HTMLButtonElement>(".burger");
+  const set = (open: boolean) => {
+    header?.classList.toggle("open", open);
+    document.documentElement.classList.toggle("menu-open", open);
+    btn?.setAttribute("aria-expanded", String(open));
+  };
+  btn?.addEventListener("click", () => set(btn.getAttribute("aria-expanded") !== "true"));
+  header?.querySelectorAll(".nav a").forEach((a) => a.addEventListener("click", () => set(false)));
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && btn?.getAttribute("aria-expanded") === "true") { set(false); btn.focus(); }
+  });
+  matchMedia("(min-width:721px)").addEventListener("change", (e) => e.matches && set(false));
+</script>
