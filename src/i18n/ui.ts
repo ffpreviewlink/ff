@@ -28,7 +28,7 @@ export const ui = {
     description: "Federico Fuffa, web developer in Matelica, Marche. Fast, accessible websites and software for small businesses and professionals. Selected work: Plinto Labs and Diiamoond.",
     ogAlt: "Federico Fuffa, web and software",
     jobTitle: "Web and software developer",
-    personDescription: "Computer Science student at the University of Camerino. Web and software.",
+    personDescription: "Web and software developer.",
     knowsAbout: ["Web development", "Technical SEO", "Web performance", "Responsive design"],
 
     heroTags: ["Web", "Software", "Digital"],
@@ -98,7 +98,7 @@ export const ui = {
 
     about: {
       label: "About",
-      text: "I'm a Computer Science student at the University of Camerino. I <em>build</em> websites and software.",
+      text: "I <em>build</em> websites and software, from design to hosting.",
       more: "I work with <em>small businesses</em> and <em>professionals</em>: fast, accessible websites and software, plus hosting, domains and DNS handled for you, so you have one person to talk to from the first sketch to the live site.",
       skills: {
         label: "Skills",
@@ -150,7 +150,7 @@ export const ui = {
     description: "Federico Fuffa, sviluppatore web a Matelica, nelle Marche. Siti veloci e accessibili e software per piccole attività e professionisti. Progetti selezionati: Plinto Labs e Diiamoond.",
     ogAlt: "Federico Fuffa, web e software",
     jobTitle: "Sviluppatore web e software",
-    personDescription: "Studente di Informatica all'Università di Camerino. Web e software.",
+    personDescription: "Sviluppatore web e software.",
     knowsAbout: ["Sviluppo web", "SEO tecnica", "Prestazioni web", "Design responsive"],
 
     heroTags: ["Web", "Software", "Digitale"],
@@ -220,7 +220,7 @@ export const ui = {
 
     about: {
       label: "Chi sono",
-      text: "Studio Informatica all'Università di Camerino. <em>Realizzo</em> siti web e software.",
+      text: "<em>Realizzo</em> siti web e software, dal design all'hosting.",
       more: "Lavoro con <em>piccole attività</em> e <em>professionisti</em>: siti veloci e accessibili e software, più hosting, domini e DNS gestiti per te, così hai un unico referente dalla prima bozza al sito online.",
       skills: {
         label: "Competenze",
