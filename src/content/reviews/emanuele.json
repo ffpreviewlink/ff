@@ -5,5 +5,11 @@
   "text": "Great guy, very fast, reliable and a very intelligent developer. Deserves to crush the world.\nI wanted to work with him myself, full time, but I don't have the resources or will to start my own company.",
   "date": "2026-10-16",
   "url": "https://www.trustpilot.com/reviews/6ad23267dabcd895f2f7c458",
+  "descriptor": {
+    "it": "Senior DevOps",
+    "en": "Senior DevOps"
+  },
+  "showAuthor": true,
+  "order": 3,
   "lang": "en"
 }

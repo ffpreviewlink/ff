@@ -6,5 +6,10 @@
   "project": "Diiamoond",
   "date": "2026-10-08",
   "url": "https://www.trustpilot.com/reviews/6ac7830f63639cd70c987481",
+  "descriptor": {
+    "it": "Producer musicale a Dublino",
+    "en": "Music producer in Dublin"
+  },
+  "order": 1,
   "lang": "it"
 }

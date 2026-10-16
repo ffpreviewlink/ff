@@ -6,7 +6,7 @@ The schema is in [`src/content.config.ts`](../../content.config.ts); the build f
 ## Add a review
 
 1. Copy an existing file, e.g. `shadrach-oboh.json`, and name it after the author: `first-last.json`.
-2. Fill in the fields:
+2. Fill in the fields. `author` is kept for provenance but is never shown on the page:
 
    | Field | Required | Notes |
    |---|---|---|
@@ -16,12 +16,15 @@ The schema is in [`src/content.config.ts`](../../content.config.ts); the build f
    | `text` | yes | Review text, copied exactly. Never edit, fix or translate it |
    | `date` | yes | Publication date, `YYYY-MM-DD` |
    | `url` | yes | Link to the review itself (open it from your Trustpilot profile), must be on `trustpilot.com` |
-   | `project` | no | Business or project name. If set, it is shown as the main name with the author under it in small grey italics |
+   | `project` | no | Business or project name, shown in bold under the review |
+   | `descriptor` | no | `{ "it": "...", "en": "..." }`: 2 to 6 words describing who wrote it (taken from the project's own description, never invented). Shown in grey under the project. Without it the page shows "Cliente professionale" / "Professional client" |
+   | `showAuthor` | no | `true` shows `author` in bold above the descriptor (only when there is no `project`). Default: the name stays hidden |
+   | `order` | no | Position in the section, lowest first; the first review is shown large. Same value (or none): newest first |
    | `lang` | no | `it` (default) or `en`: the language the review was written in |
 
 3. `npm run build` to check it, then commit and push.
 
-The page sorts reviews by date (newest first) and recalculates the count and the average by itself.
+The page sorts reviews by `order`, then by date (newest first) and recalculates the count and the average by itself.
 The average is shown from 3 reviews up; before that only the count is shown (Trustpilot itself shows a
 lower, weighted score while a profile has few reviews, so a plain "5.0" would look inconsistent).
 

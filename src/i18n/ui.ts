@@ -83,8 +83,10 @@ export const ui = {
     },
 
     reviews: {
-      label: "Reviews",
+      label: "Reviews on Trustpilot",
       source: "on Trustpilot",
+      avgOf: "average of {n} reviews",
+      profile: "See the Trustpilot profile",
       one: "1 review",
       many: "{n} reviews",
       avgAria: "Average rating {avg} out of 5, from {n} reviews",
@@ -93,7 +95,7 @@ export const ui = {
       read: "Read on Trustpilot",
       all: "See all reviews on Trustpilot",
       leave: "Leave a review",
-      project: "Project",
+      anon: "Professional client",
     },
 
     about: {
@@ -205,8 +207,10 @@ export const ui = {
     },
 
     reviews: {
-      label: "Recensioni",
+      label: "Recensioni su Trustpilot",
       source: "su Trustpilot",
+      avgOf: "media di {n} recensioni",
+      profile: "Vedi il profilo Trustpilot",
       one: "1 recensione",
       many: "{n} recensioni",
       avgAria: "Valutazione media {avg} su 5, da {n} recensioni",
@@ -215,7 +219,7 @@ export const ui = {
       read: "Leggi su Trustpilot",
       all: "Vedi tutte le recensioni su Trustpilot",
       leave: "Lascia una recensione",
-      project: "Progetto",
+      anon: "Cliente professionale",
     },
 
     about: {

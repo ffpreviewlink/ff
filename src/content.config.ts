@@ -19,6 +19,12 @@ const reviews = defineCollection({
       .refine((u) => new URL(u).hostname.endsWith("trustpilot.com"), "must be a trustpilot.com link"),
     /** Project or client the review is about (optional). */
     project: z.string().optional(),
+    /** Short description of the author shown instead of their name (2-6 words), per site language. Optional: the UI falls back to a neutral label. */
+    descriptor: z.object({ it: z.string().min(1), en: z.string().min(1) }).optional(),
+    /** Show `author` as the bold name above the descriptor. Off by default: names are hidden unless the author agreed. */
+    showAuthor: z.boolean().default(false),
+    /** Position in the section: lowest first, the first one is shown large. Ties fall back to newest first. */
+    order: z.number().int().default(100),
     /** Language the review was written in. Never translated: it is shown as written. */
     lang: z.enum(["it", "en"]).default("it"),
   }),
