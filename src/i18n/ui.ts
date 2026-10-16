@@ -125,7 +125,7 @@ export const ui = {
 
     contact: {
       label: "Contact",
-      cv: { href: "/Federico_Fuffa_CV_EN.pdf", label: "Download CV", meta: "PDF · EN", aria: "Download my CV, PDF in English" },
+      cv: { href: "/Federico_Fuffa_CV_EN_no-phone.pdf", label: "Download CV", meta: "PDF · EN", aria: "Download my CV, PDF in English" },
     },
 
     footer: { copy: "© 2026 Federico Fuffa.", rights: "All rights reserved.", role: "Digital consultant for:", top: "Back to top ↑", privacy: "Privacy Policy", cookies: "Cookie Policy", settings: "Cookie settings" },
@@ -249,7 +249,7 @@ export const ui = {
 
     contact: {
       label: "Contatti",
-      cv: { href: "/Federico_Fuffa_CV_IT.pdf", label: "Scarica CV", meta: "PDF · IT", aria: "Scarica il mio CV, PDF in italiano" },
+      cv: { href: "/Federico_Fuffa_CV_IT_no-phone.pdf", label: "Scarica CV", meta: "PDF · IT", aria: "Scarica il mio CV, PDF in italiano" },
     },
 
     footer: { copy: "© 2026 Federico Fuffa.", rights: "Tutti i diritti riservati.", role: "Consulente digitale per:", top: "Torna su ↑", privacy: "Privacy Policy", cookies: "Cookie Policy", settings: "Impostazioni cookie" },
