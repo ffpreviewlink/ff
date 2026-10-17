@@ -32,7 +32,7 @@ export const ui = {
     knowsAbout: ["Web development", "Technical SEO", "Web performance", "Responsive design"],
 
     heroTags: ["Web", "Software", "Digital"],
-    heroSub: "Freelance web developer and programmer at Halley\u00A0Informatica\u00A0S.r.l. Fast, polished, optimized websites for businesses and professionals.",
+    heroSub: "Freelance web developer. Fast, polished, optimized websites for businesses and professionals.",
     cta: { work: "See my projects", contact: "Let's work together" },
     country: "Matelica, Marche, Italy",
 
@@ -92,6 +92,12 @@ export const ui = {
       avgAria: "Average rating {avg} out of 5, from {n} reviews",
       starsAria: "{n} out of 5 stars",
       listAria: "Client reviews",
+      slideAria: "Review {i} of {n}",
+      prev: "Previous review",
+      next: "Next review",
+      goTo: "Go to review {i}",
+      more: "Read the full review",
+      less: "Show less",
       read: "Read on Trustpilot",
       all: "See all reviews on Trustpilot",
       leave: "Leave a review",
@@ -105,7 +111,7 @@ export const ui = {
       skills: {
         label: "Skills",
         groups: [
-          { t: "Front-end / Web", hi: true, l: ["HTML5", "CSS3", "JavaScript", "Astro", "Responsive Web Design", "UI/UX"] },
+          { t: "Front-end / Web", hi: true, l: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "Astro", "Responsive Web Design", "UI/UX"] },
           { t: "Back-end & data", l: ["Node.js", "Nodemailer (SMTP)", "Form validation", "Rate limiting", "MySQL", "PHP"] },
           { t: "Infrastructure & deployment", hi: true, l: ["Git", "GitHub", "GitHub Pages", "Linux (Debian, WSL)", "npm", "DNS", "DNS configuration", "Cloudflare (Tunnel)", "Production build", "Hosting / FTP"] },
           { t: "SEO & performance", hi: true, l: ["Meta tags", "Heading structure (H1)", "Minification and optimization", "Google Search Console", "Analytics", "Accessibility", "Technical SEO", "Web performance"] },
@@ -156,7 +162,7 @@ export const ui = {
     knowsAbout: ["Sviluppo web", "SEO tecnica", "Prestazioni web", "Design responsive"],
 
     heroTags: ["Web", "Software", "Digitale"],
-    heroSub: "Sviluppatore web freelance e programmatore presso Halley\u00A0Informatica\u00A0S.r.l. Siti veloci, curati e ottimizzati per aziende e professionisti.",
+    heroSub: "Sviluppatore web freelance. Siti veloci, curati e ottimizzati per aziende e professionisti.",
     cta: { work: "Scopri i miei progetti", contact: "Lavoriamo insieme" },
     country: "Matelica, Marche, Italia",
 
@@ -216,6 +222,12 @@ export const ui = {
       avgAria: "Valutazione media {avg} su 5, da {n} recensioni",
       starsAria: "{n} stelle su 5",
       listAria: "Recensioni dei clienti",
+      slideAria: "Recensione {i} di {n}",
+      prev: "Recensione precedente",
+      next: "Recensione successiva",
+      goTo: "Vai alla recensione {i}",
+      more: "Leggi tutta la recensione",
+      less: "Mostra meno",
       read: "Leggi su Trustpilot",
       all: "Vedi tutte le recensioni su Trustpilot",
       leave: "Lascia una recensione",
@@ -229,7 +241,7 @@ export const ui = {
       skills: {
         label: "Competenze",
         groups: [
-          { t: "Frontend / Web", hi: true, l: ["HTML5", "CSS3", "JavaScript", "Astro", "Responsive Web Design", "UI/UX"] },
+          { t: "Frontend / Web", hi: true, l: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "Astro", "Responsive Web Design", "UI/UX"] },
           { t: "Backend e dati", l: ["Node.js", "Nodemailer (SMTP)", "Validazione form", "Rate limiting", "MySQL", "PHP"] },
           { t: "Infrastruttura e deploy", hi: true, l: ["Git", "GitHub", "GitHub Pages", "Linux (Debian, WSL)", "npm", "DNS", "Configurazione DNS", "Cloudflare (Tunnel)", "Build di produzione", "Hosting / FTP"] },
           { t: "SEO e prestazioni", hi: true, l: ["Meta tag", "Struttura heading (H1)", "Minificazione e ottimizzazione", "Google Search Console", "Analytics", "Accessibilità", "SEO tecnica", "Prestazioni web"] },

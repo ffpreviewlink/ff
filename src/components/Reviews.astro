@@ -24,13 +24,15 @@ const avgText = avg.toLocaleString(lang === "it" ? "it-IT" : "en-GB", { minimumF
 const count = n === 1 ? t.one : t.many.replace("{n}", String(n));
 const dateFmt = new Intl.DateTimeFormat(lang === "it" ? "it-IT" : "en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 const iso = (d: Date) => d.toISOString().slice(0, 10);
+// Trustpilot copies repeat the title as the first line of the text: drop it, show it once as heading.
+const bodyOf = (r: (typeof reviews)[number]) => r.text.split("\n").filter((line, k) => !(k === 0 && line === r.title));
 const star = "M12 2.5l2.95 6.2 6.8.85-5 4.7 1.3 6.75L12 17.6 5.95 21l1.3-6.75-5-4.7 6.8-.85z";
 ---
 {n > 0 && (
   <section id="reviews" aria-labelledby="r-h">
     <div class="wrap">
       <div class="frame"><h2 class="label" id="r-h">{t.label}</h2>
-        <div>
+        <div class="r-body">
           <div class="r-head rv">
             <p class="r-sum">
               {n >= MIN_FOR_AVERAGE ? (
@@ -52,34 +54,60 @@ const star = "M12 2.5l2.95 6.2 6.8.85-5 4.7 1.3 6.75L12 17.6 5.95 21l1.3-6.75-5-
             <p class="r-lede"><a class="ul r-prof" href={PROFILE} target="_blank" rel="noopener noreferrer">{t.profile} <span aria-hidden="true">↗</span></a></p>
           </div>
 
-          <ul class="r-list" aria-label={t.listAria}>
-            {reviews.map((r, i) => (
-              <li class={i === 0 ? "rv r-lead" : "rv"} style={`--d:${i % 3}`}>
-                <article class="r-card">
-                  <div class="r-top">
-                    <span class="r-idx mono" aria-hidden="true">{String(i + 1).padStart(2, "0")} / {String(n).padStart(2, "0")}</span>
-                    <span class="stars" role="img" aria-label={t.starsAria.replace("{n}", String(r.rating))}>
-                      <svg viewBox="0 0 120 24" width="120" height="24" aria-hidden="true">
-                        {[0, 1, 2, 3, 4].map((k) => <path class={k < r.rating ? "r-on" : "r-off"} d={star} transform={`translate(${k * 24} 0)`} />)}
-                      </svg>
-                    </span>
-                  </div>
-                  <h3 lang={r.lang}>{r.title}</h3>
-                  <blockquote lang={r.lang}>{r.text.split("\n").filter((line, k) => !(k === 0 && line === r.title)).map((line) => <p>{line}</p>)}</blockquote>
-                  <footer>
-                    <p class="r-who">
-                      {r.project ? <b>{r.project}</b> : r.showAuthor && <b>{r.author}</b>}
-                      <span>{r.descriptor?.[lang] ?? t.anon}</span>
+          <div class="r-car rv" data-carousel role="region" aria-roledescription="carousel" aria-label={t.listAria} data-more={t.more} data-less={t.less} data-slide={t.slideAria}>
+            <div class="r-track" data-track>
+              {reviews.map((r, i) => (
+                <div class="r-slide" role="group" aria-roledescription="slide" aria-label={t.slideAria.replace("{i}", String(i + 1)).replace("{n}", String(n))}>
+                  <article class="r-card">
+                    <p class="r-top">
+                      <span class="stars" role="img" aria-label={t.starsAria.replace("{n}", String(r.rating))}>
+                        <svg viewBox="0 0 120 24" width="120" height="24" aria-hidden="true">
+                          {[0, 1, 2, 3, 4].map((k) => <path class={k < r.rating ? "r-on" : "r-off"} d={star} transform={`translate(${k * 24} 0)`} />)}
+                        </svg>
+                      </span>
+                      <time class="mono" datetime={iso(r.date)}>{dateFmt.format(r.date)}</time>
                     </p>
-                    <p class="r-meta">
-                      <time datetime={iso(r.date)}>{dateFmt.format(r.date)}</time>
+                    <h3 lang={r.lang}>{r.title}</h3>
+                    <div class="r-text">
+                      <blockquote id={`r-q-${i}`} lang={r.lang}>{bodyOf(r).map((line) => <p>{line}</p>)}</blockquote>
+                      {bodyOf(r).join("").length > 180 && (
+                        <button type="button" class="r-more" aria-expanded="false" aria-controls={`r-q-${i}`} data-more-btn>{t.more}</button>
+                      )}
+                    </div>
+                    <footer>
+                      <p class="r-who">
+                        {r.project ? <b>{r.project}</b> : r.showAuthor && <b>{r.author}</b>}
+                        <span>{r.descriptor?.[lang] ?? t.anon}</span>
+                      </p>
                       <a class="ul r-read" href={r.url} target="_blank" rel="noopener noreferrer" aria-label={`${t.read}: ${r.project ?? r.descriptor?.[lang] ?? r.title}`}>{t.read} <span aria-hidden="true">↗</span></a>
-                    </p>
-                  </footer>
-                </article>
-              </li>
-            ))}
-          </ul>
+                    </footer>
+                  </article>
+                </div>
+              ))}
+            </div>
+
+            {n > 1 && (
+              <div class="r-ctl">
+                <div class="r-arrows">
+                  <button type="button" class="r-btn" data-prev aria-label={t.prev}>
+                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6" /></svg>
+                  </button>
+                  <button type="button" class="r-btn" data-next aria-label={t.next}>
+                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" /></svg>
+                  </button>
+                </div>
+                <p class="r-pos mono" aria-live="polite" aria-atomic="true">
+                  <span aria-hidden="true"><span data-cur>01</span> / {String(n).padStart(2, "0")}</span>
+                  <span class="sr" data-pos>{t.slideAria.replace("{i}", "1").replace("{n}", String(n))}</span>
+                </p>
+                <div class="r-dots">
+                  {reviews.map((_, i) => (
+                    <button type="button" class="r-dot" data-dot aria-label={t.goTo.replace("{i}", String(i + 1))} aria-current={i === 0 ? "true" : undefined}></button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
 
           <div class="r-actions rv">
             <a class="store visit" href={PROFILE} target="_blank" rel="noopener noreferrer"><span>{t.all}</span><span class="arr" aria-hidden="true">↗</span></a>
@@ -90,3 +118,141 @@ const star = "M12 2.5l2.95 6.2 6.8.85-5 4.7 1.3 6.75L12 17.6 5.95 21l1.3-6.75-5-
     </div>
   </section>
 )}
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-carousel]").forEach((root) => {
+    const track = root.querySelector<HTMLElement>("[data-track]")!;
+    const slides = [...track.children] as HTMLElement[];
+    const prev = root.querySelector<HTMLElement>("[data-prev]");
+    const next = root.querySelector<HTMLElement>("[data-next]");
+    const dots = [...root.querySelectorAll<HTMLElement>("[data-dot]")];
+    const cur = root.querySelector("[data-cur]");
+    const pos = root.querySelector("[data-pos]");
+    const { more = "", less = "", slide = "" } = root.dataset;
+    const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const pad = (i: number) => String(i).padStart(2, "0");
+    let idx = 0;
+
+    const closeText = (s: HTMLElement) => {
+      const btn = s.querySelector<HTMLElement>("[data-more-btn]");
+      if (!btn || btn.getAttribute("aria-expanded") !== "true") return;
+      s.querySelector(".r-text")!.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+      btn.textContent = more;
+    };
+
+    const nearest = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      if (track.scrollLeft <= 1) return 0;
+      if (track.scrollLeft >= max - 1) return slides.length - 1;
+      const left = track.getBoundingClientRect().left;
+      let best = 0, d = Infinity;
+      slides.forEach((s, i) => {
+        const v = Math.abs(s.getBoundingClientRect().left - left);
+        if (v < d) (d = v), (best = i);
+      });
+      return best;
+    };
+
+    const show = (i: number) => {
+      if (i === idx) return;
+      slides[idx] && closeText(slides[idx]);
+      idx = i;
+      prev?.setAttribute("aria-disabled", String(i === 0));
+      next?.setAttribute("aria-disabled", String(i === slides.length - 1));
+      dots.forEach((d, k) => (k === i ? d.setAttribute("aria-current", "true") : d.removeAttribute("aria-current")));
+      if (cur) cur.textContent = pad(i + 1);
+      if (pos) pos.textContent = slide.replace("{i}", String(i + 1)).replace("{n}", String(slides.length));
+    };
+    // while a programmatic scroll runs the indicators already point at its target, so they never
+    // flash the slides it passes over
+    let lock = 0;
+    const paint = () => { if (!lock) show(nearest()); };
+    prev?.setAttribute("aria-disabled", "true");
+
+    const go = (i: number) => {
+      const k = Math.max(0, Math.min(slides.length - 1, i));
+      clearTimeout(lock);
+      lock = window.setTimeout(() => ((lock = 0), paint()), reduced() ? 50 : 800);
+      show(k);
+      track.scrollTo({ left: slides[k].offsetLeft, behavior: reduced() ? "auto" : "smooth" });
+    };
+    const release = () => { clearTimeout(lock); lock = 0; };
+    track.addEventListener("pointerdown", release);
+    track.addEventListener("wheel", release, { passive: true });
+
+    let raf = 0;
+    track.addEventListener("scroll", () => { if (!raf) raf = requestAnimationFrame(() => ((raf = 0), paint())); }, { passive: true });
+    prev?.addEventListener("click", () => go(idx - 1));
+    next?.addEventListener("click", () => go(idx + 1));
+    dots.forEach((d, k) => d.addEventListener("click", () => go(k)));
+    root.addEventListener("keydown", (e) => {
+      if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+      const to = e.key === "ArrowLeft" ? idx - 1 : e.key === "ArrowRight" ? idx + 1 : e.key === "Home" ? 0 : e.key === "End" ? slides.length - 1 : -1;
+      if (to < 0) return;
+      e.preventDefault();
+      go(to);
+    });
+
+    // Autoplay: one slide every AUTO ms. Any manual interaction holds it for HOLD ms, then it moves
+    // on to the next slide and keeps the normal pace. It also waits while a text is open, while the
+    // pointer rests on the cards, while focus is inside a card, off screen, in a background tab and
+    // when the visitor asked for reduced motion.
+    const AUTO = 5000, HOLD = 15000;
+    let timer = 0, holdUntil = 0, hovering = false, focusing = false, visible = false;
+    const isOpen = () => slides.some((s) => s.querySelector("[data-more-btn]")?.getAttribute("aria-expanded") === "true");
+    const update = () => {
+      clearTimeout(timer);
+      if (slides.length < 2 || reduced() || hovering || focusing || !visible || document.hidden || isOpen()) return;
+      timer = window.setTimeout(() => {
+        holdUntil = 0;
+        go((idx + 1) % slides.length);
+        update();
+      }, Math.max(AUTO, holdUntil - Date.now()));
+    };
+    const manual = () => { holdUntil = Date.now() + HOLD; update(); };
+    root.addEventListener("pointerdown", manual);
+    root.addEventListener("click", manual);
+    root.addEventListener("keydown", manual);
+    track.addEventListener("wheel", manual, { passive: true });
+    track.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") (hovering = true), update(); });
+    track.addEventListener("pointerleave", () => { hovering = false; update(); });
+    track.addEventListener("focusin", (e) => { focusing = (e.target as HTMLElement).matches(":focus-visible"); update(); });
+    track.addEventListener("focusout", () => { focusing = false; update(); });
+    document.addEventListener("visibilitychange", update);
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; update(); }, { threshold: 0.4 }).observe(root);
+
+    // expand / collapse
+    slides.forEach((s) => {
+      const btn = s.querySelector<HTMLElement>("[data-more-btn]");
+      if (!btn) return;
+      btn.addEventListener("click", () => {
+        const text = s.querySelector(".r-text")!;
+        const open = btn.getAttribute("aria-expanded") !== "true";
+        text.classList.toggle("open", open);
+        btn.setAttribute("aria-expanded", String(open));
+        btn.textContent = open ? less : more;
+        if (!open && root.getBoundingClientRect().top < 0) root.scrollIntoView({ block: "start", behavior: reduced() ? "auto" : "smooth" });
+      });
+    });
+
+    // the button only exists when the text really is cut
+    const measure = () => {
+      slides.forEach((s) => {
+        const btn = s.querySelector<HTMLElement>("[data-more-btn]");
+        const q = s.querySelector<HTMLElement>("blockquote");
+        if (!btn || !q || btn.getAttribute("aria-expanded") === "true") return;
+        btn.hidden = q.scrollHeight <= q.clientHeight + 1;
+      });
+    };
+    measure();
+    document.fonts?.ready.then(measure);
+    let w = track.clientWidth;
+    new ResizeObserver(() => {
+      if (track.clientWidth === w) return;
+      w = track.clientWidth;
+      track.scrollTo({ left: slides[idx].offsetLeft, behavior: "auto" });
+      measure();
+    }).observe(track);
+  });
+</script>

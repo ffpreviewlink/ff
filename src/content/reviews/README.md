@@ -19,7 +19,7 @@ The schema is in [`src/content.config.ts`](../../content.config.ts); the build f
    | `project` | no | Business or project name, shown in bold under the review |
    | `descriptor` | no | `{ "it": "...", "en": "..." }`: 2 to 6 words describing who wrote it (taken from the project's own description, never invented). Shown in grey under the project. Without it the page shows "Cliente professionale" / "Professional client" |
    | `showAuthor` | no | `true` shows `author` in bold above the descriptor (only when there is no `project`). Default: the name stays hidden |
-   | `order` | no | Position in the section, lowest first; the first review is shown large. Same value (or none): newest first |
+   | `order` | no | Position in the section, lowest first; the first one opens the carousel. Same value (or none): newest first |
    | `lang` | no | `it` (default) or `en`: the language the review was written in |
 
 3. `npm run build` to check it, then commit and push.
