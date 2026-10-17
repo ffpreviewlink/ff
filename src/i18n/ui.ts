@@ -112,7 +112,7 @@ export const ui = {
         label: "Skills",
         groups: [
           { t: "Front-end / Web", hi: true, l: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "Astro", "Responsive Web Design", "UI/UX"] },
-          { t: "Back-end & data", l: ["Node.js", "Nodemailer (SMTP)", "Form validation", "Rate limiting", "MySQL", "PHP"] },
+          { t: "Back-end & data", l: ["Node.js", "Nodemailer (SMTP)", "PHPMailer", "Form validation", "Rate limiting", "MySQL", "PHP"] },
           { t: "Infrastructure & deployment", hi: true, l: ["Git", "GitHub", "GitHub Pages", "Linux (Debian, WSL)", "npm", "DNS", "DNS configuration", "Cloudflare (Tunnel)", "Production build", "Hosting / FTP"] },
           { t: "SEO & performance", hi: true, l: ["Meta tags", "Heading structure (H1)", "Minification and optimization", "Google Search Console", "Analytics", "Accessibility", "Technical SEO", "Web performance"] },
         ] as { t: string; l: string[]; hi?: boolean }[],
@@ -242,7 +242,7 @@ export const ui = {
         label: "Competenze",
         groups: [
           { t: "Frontend / Web", hi: true, l: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "Astro", "Responsive Web Design", "UI/UX"] },
-          { t: "Backend e dati", l: ["Node.js", "Nodemailer (SMTP)", "Validazione form", "Rate limiting", "MySQL", "PHP"] },
+          { t: "Backend e dati", l: ["Node.js", "Nodemailer (SMTP)", "PHPMailer", "Validazione form", "Rate limiting", "MySQL", "PHP"] },
           { t: "Infrastruttura e deploy", hi: true, l: ["Git", "GitHub", "GitHub Pages", "Linux (Debian, WSL)", "npm", "DNS", "Configurazione DNS", "Cloudflare (Tunnel)", "Build di produzione", "Hosting / FTP"] },
           { t: "SEO e prestazioni", hi: true, l: ["Meta tag", "Struttura heading (H1)", "Minificazione e ottimizzazione", "Google Search Console", "Analytics", "Accessibilità", "SEO tecnica", "Prestazioni web"] },
         ] as { t: string; l: string[]; hi?: boolean }[],
