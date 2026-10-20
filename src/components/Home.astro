@@ -160,30 +160,45 @@ const jsonld = [
     <div class="wrap">
       <div class="frame"><h2 class="label" id="p-h">{t.projects.perno.label}</h2>
         <article class="pn">
-          <div class="pn-top rv">
+          <p class="pn-eyebrow rv">{t.projects.perno.eyebrow[0]}<i aria-hidden="true">/</i>{t.projects.perno.eyebrow[1]}</p>
+          <div class="pn-top rv" style="--d:1">
             <img class="pn-logo" src="/perno-logo.webp" width="240" height="231" alt={t.projects.perno.alt} loading="lazy" decoding="async" />
             <div>
               <h3><b>P</b>erno</h3>
               <span class="pn-kind">{t.projects.perno.kind}</span>
             </div>
           </div>
-          <div class="pn-body rv" style="--d:1">
-            <p class="pn-desc" set:html={t.projects.perno.desc} />
-            <div class="pn-cta">
-              <a class="store" href="https://apps.microsoft.com/detail/9n5t86tbmzns" target="_blank" rel="noopener" aria-label={t.projects.perno.aria}>
-                <span class="ms" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-                <span>{t.projects.perno.cta}<small data-perno-version>{version && "v" + version}</small></span>
-              </a>
-              <a class="plink ul" href="https://ffpreviewlink.github.io/perno-releases/" target="_blank" rel="noopener">{t.projects.perno.more} ↗</a>
-            </div>
-          </div>
-          <div class="pn-cols">
-            {t.projects.perno.groups.map((g, i) => (
-              <div class="pn-col rv" style={`--d:${i + 2}`}>
-                <span class="n" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-                <h4>{g.t}</h4>
-                <ul>{g.l.map((x) => <li>{x}</li>)}</ul>
+          <div class="pn-body rv" style="--d:2">
+            <div class="pn-intro">
+              <p class="pn-desc" set:html={t.projects.perno.desc} />
+              <p class="pn-sub">{t.projects.perno.sub}</p>
+              <div class="pn-cta">
+                <a class="store" href="https://apps.microsoft.com/detail/9n5t86tbmzns" target="_blank" rel="noopener" aria-label={t.projects.perno.aria}>
+                  <span class="ms" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                  <span>{t.projects.perno.cta}<small data-perno-version>{version && "v" + version}</small></span>
+                </a>
+                <a class="plink ul" href="https://ffpreviewlink.github.io/perno-releases/" target="_blank" rel="noopener">{t.projects.perno.more} ↗</a>
               </div>
+            </div>
+            <dl class="pn-meta" aria-label={t.projects.perno.metaLabel}>
+              {t.projects.perno.meta.map((m) => (
+                <div><dt>{m.k}</dt><dd>{m.v}</dd></div>
+              ))}
+            </dl>
+          </div>
+          <div class="pn-rh rv">
+            <h4>{t.projects.perno.respTitle}</h4>
+            <p>{t.projects.perno.respLede}</p>
+          </div>
+          <div class="pn-areas">
+            {t.projects.perno.groups.map((g, i) => (
+              <section class={"pn-area rv" + (g.l ? " pn-area-s" : "")} style={`--d:${i}`}>
+                <span class="n" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                <h5>{g.t}</h5>
+                <p class="pn-as">{g.s}</p>
+                <p class="pn-ap">{g.p}</p>
+                {g.l && <ul>{g.l.map((x) => <li>{x}</li>)}</ul>}
+              </section>
             ))}
           </div>
         </article>
