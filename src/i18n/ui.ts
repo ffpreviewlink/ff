@@ -88,7 +88,7 @@ export const ui = {
       },
       ray: {
         kind: "Website",
-        desc: "Website for a <em>multilingual voice actor</em>: showreels, testimonials and a <em>free custom demo</em> request.",
+        desc: "Portfolio for a <em>voice actor</em> working in <em>English, Italian and Bulgarian</em>: voiceovers for <em>trailers</em>, <em>commercials</em> and <em>e-learning</em>.",
         alt: "That's Ray's Voice logo",
         aria: "Visit thatsraysvoice.com",
         cta: "Visit thatsraysvoice.com",
@@ -238,7 +238,7 @@ export const ui = {
       },
       ray: {
         kind: "Sito web",
-        desc: "Sito per un <em>doppiatore multilingue</em>: showreel, testimonianze e richiesta di una <em>demo personalizzata gratuita</em>.",
+        desc: "Portfolio per un <em>doppiatore</em> che lavora in <em>inglese, italiano e bulgaro</em>: voiceover per <em>trailer</em>, <em>spot</em> ed <em>e-learning</em>.",
         alt: "Logo di That's Ray's Voice",
         aria: "Visita thatsraysvoice.com",
         cta: "Visita thatsraysvoice.com",
