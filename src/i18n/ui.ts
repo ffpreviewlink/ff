@@ -82,7 +82,16 @@ export const ui = {
       nicastro: {
         kind: "Website",
         desc: "Website for an <em>optometry and vision therapy</em> studio: clear content, <em>accessible</em> design, built for its patients.",
-        status: "In progress",
+        alt: "Studio Optometrico Nicastro logo",
+        aria: "Visit studio-nicastro.it",
+        cta: "Visit studio-nicastro.it",
+      },
+      ray: {
+        kind: "Website",
+        desc: "Website for a <em>multilingual voice actor</em>: showreels, testimonials and a <em>free custom demo</em> request.",
+        alt: "That's Ray's Voice logo",
+        aria: "Visit thatsraysvoice.com",
+        cta: "Visit thatsraysvoice.com",
       },
       boarelli: {
         kind: "Website",
@@ -223,7 +232,16 @@ export const ui = {
       nicastro: {
         kind: "Sito web",
         desc: "Sito per uno studio di <em>optometria e rieducazione visiva</em>: contenuti chiari, design <em>accessibile</em>, pensato per i suoi pazienti.",
-        status: "In corso",
+        alt: "Logo di Studio Optometrico Nicastro",
+        aria: "Visita studio-nicastro.it",
+        cta: "Visita studio-nicastro.it",
+      },
+      ray: {
+        kind: "Sito web",
+        desc: "Sito per un <em>doppiatore multilingue</em>: showreel, testimonianze e richiesta di una <em>demo personalizzata gratuita</em>.",
+        alt: "Logo di That's Ray's Voice",
+        aria: "Visita thatsraysvoice.com",
+        cta: "Visita thatsraysvoice.com",
       },
       boarelli: {
         kind: "Sito web",
